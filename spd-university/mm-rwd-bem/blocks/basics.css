@@ -1,0 +1,63 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+
+    width: 100%;
+    min-width: 270px;
+    margin: 0;
+
+    box-sizing: border-box;
+
+    color: #333;
+    background-color: #fff;
+}
+
+.lock-screen {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: #333;
+    opacity: .99;
+}
+
+.align-img {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    max-width: 100%;
+    margin: auto;
+}
+
+.hide {
+    display: none;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: .1in;
+    }
+
+    * {
+        color: black !important;
+        background: #fff !important;
+    }
+
+    body {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 12pt;
+    }
+}

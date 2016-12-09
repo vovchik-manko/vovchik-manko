@@ -1,0 +1,42 @@
+.product-proto {
+    text-align: center;
+}
+
+.product-proto__img {
+    max-width: 100%;
+}
+
+.product-proto__button {
+    position: relative;
+
+    margin: 20px auto;
+}
+
+.product-proto__caption {
+    font-size: 120%;
+}
+
+.product-proto_strong {
+    color: #3998f5;
+}
+
+.product-proto_small {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+}
+
+@media screen and (min-width: 493px) and (max-width: 767px) and (orientation: landscape) {
+    .product-proto__img {
+        width: 80%;
+    }
+
+    .product-proto__button {
+        margin: 5px;
+    }
+}
+
+@media print {
+    .product-proto__download {
+        margin: 10pt auto;
+    }
+}

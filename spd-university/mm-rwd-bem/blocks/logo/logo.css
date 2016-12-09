@@ -1,0 +1,22 @@
+.logo__title {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.logo__img {
+    max-width: 100%;
+    vertical-align: middle;
+
+    border: 2px solid transparent;    /*for IE9 - not to show border in logo*/
+}
+
+@media screen and (min-width: 768px) {
+    .logo__title {
+        font-size: 20px;
+    }
+}

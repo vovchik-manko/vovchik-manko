@@ -1,0 +1,125 @@
+.pref-plan {
+    font-weight: normal;
+    text-align: center;
+
+    min-width: 150px;
+    max-width: 300px;
+
+    padding-bottom: 10px;
+
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 7px #aaa;
+}
+
+.pref-plan_exclusive {
+    padding-bottom: 15px;
+}
+
+.pref-plan__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+
+    text-transform: capitalize;
+}
+
+.pref-plan__title_common {
+    margin: 0;
+    padding: 10px;
+
+    color: #333;
+    border-radius: 5px 5px 0 0;
+    background-color: #fff;
+}
+
+.pref-plan__title_exclusive {
+    margin: 0;
+    margin-top: -4px;
+    padding: 12px;
+
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    background-color: #333;
+}
+
+.pref-plan__price {
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+
+    margin: 0;
+    padding: 10px;
+
+    color: #ddd;
+    background-color: #202020;
+}
+
+.pref-plan__option-list {
+    margin-top: 10px;
+}
+
+.pref-plan__button {
+    width: 81.45%;
+    max-width: 180px;
+    margin-top: 5px;
+}
+
+
+@media screen and (min-width: 480px) and (orientation: landscape) {
+    .pref-plan__option-list {
+        font-size: 15px;
+        padding: 4px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .pref-plan__title {
+        font-size: 22px;
+    }
+
+    .pref-plan__title_common {
+        padding: 15px;
+    }
+
+    .pref-plan__title_exclusive {
+        margin-top: -10px;
+        padding: 20px;
+    }
+
+    .pref-plan__price {
+        font-size: 18px;
+
+        padding: 10px;
+    }
+
+    .pref-plan__option-list {
+        font-weight: normal;
+        margin-top: 15px;
+    }
+}
+
+@media print {
+    .pref-plan {
+        margin: 5pt auto;
+        padding-bottom: 2pt;
+        border-radius: 5px;
+        border: 2pt solid #aaa;
+        box-shadow: none;
+    }
+
+    .pref-plan__title {
+        padding: 10pt;
+    }
+
+    .pref-plan__title_exclusive {
+        margin-top: -3pt;
+        padding-bottom: 12pt;
+        border-top: 1pt solid #aaa;
+    }
+
+    .pref-plan__price {
+        padding: 8pt;
+        border-top: 1pt solid #999;
+        border-bottom: 1pt solid #999;
+    }
+}

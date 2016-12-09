@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="e-commerce platform">
+    <meta name="keywords" content="launchpad, platform, e-commerce">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="blocks/logo/logo_small_2.png" type="image/jpg" sizes="20x28">
+    <title>Task 08. BEM for Launchpad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" title="About Launchpad" class="link logo header__logo" id="#start">
+            <img src="blocks/logo/logo_small_2.png" alt="logo" class="logo__img">
+            <h1 class="logo__title">launchpad</h1>
+        </a>
+        <nav class="header__nav">
+            <ul class="menu header__menu">
+                <li class="menu__item header__menu-item"><a href="#tour" class="link menu__link_for-nav menu__link_for-nav_primary">Tour</a></li>
+                <li class="menu__item header__menu-item"><a href="#strengths" class="link menu__link_for-nav">Features</a></li>
+                <li class="menu__item header__menu-item"><a href="#price" class="link menu__link_for-nav">Pricing</a></li>
+                <li class="menu__item header__menu-item"><a href="#support" class="link menu__link_for-nav">Support</a></li>
+            </ul>
+            <a href="#follow-menu" class="sr-only sr-only-focusable header__sr-only sr-only_highlight">Skip to social links</a>
+        </nav>
+    </header>
+
+    <section class="section about-product" id="tour">
+        <h2 class="section__title">introducing <b>Paypaul</b></h2>
+        <p class="section__text about-product__summary">A revolutionary e-commerce Platform</p>
+        <figure class="product-proto">
+            <img src="blocks/product-proto/banner.png" alt="devices" class="product-proto__img">
+            <figcaption>
+                <p class="section__text product-proto__caption">Take it for a spin <strong>today!</strong></p>
+                <a href="blocks/product-proto/banner.png" download class="button button_download product-proto__button">Free Download</a>
+                <br>
+                <small class="product-proto_small">Available for <b class="product-proto_strong">Mac, Windows, <abbr
+                        title="iPhone Operating System">ios</abbr>,</b> and <b class="product-proto_strong">Android</b>
+                </small>
+            </figcaption>
+        </figure>
+    </section>
+
+    <div class="banner-content">
+        <section class="section features" id="strengths">
+            <h2 class="section__title">newly added <strong class="section__title_strong">features</strong></h2>
+            <div class="features__list-container">
+                <dl class="features__list dfn-list">
+                    <dt class="dfn-list__item-title dfn-list__item-title_option">New payment options</dt>
+                    <dd class="dfn-list__item-details">Now you can add Debit, Visa, Mastercard, Amex, and more.</dd>
+                    <dt class="dfn-list__item-title dfn-list__item-title_security">Increased security</dt>
+                    <dd class="dfn-list__item-details">Protecting your data from predators is our top priority.</dd>
+                    <dt class="dfn-list__item-title dfn-list__item-title_mobile">Mobile ready</dt>
+                    <dd class="dfn-list__item-details">Download and use our app on your favourite mobile device.</dd>
+                    <dt class="dfn-list__item-title dfn-list__item-title_customize">Customizable widgets</dt>
+                    <dd class="dfn-list__item-details">Keep an eye sales, reviews, stock levels, and general store performance.</dd>
+                    <dt class="dfn-list__item-title dfn-list__item-title_new-design">Intuitive new design</dt>
+                    <dd class="dfn-list__item-details">We redesigned and re-built the user interface from inside out.</dd>
+                </dl>
+            </div>
+        </section>
+    </div>
+
+    <section class="section pricing" id="price">
+        <h2 class="section__title">pricing <strong class="section__title_strong">table</strong></h2>
+        <div class="price-list">
+            <section class="pref-plan price-list__pref-plan">
+                <h3 class="pref-plan__title pref-plan__title_common">plan 1</h3>
+                <h4 class="pref-plan__price">$10/month</h4>
+                <ul class="option-list pref-plan__option-list">
+                    <li class="option-list__item"><strong class="option-list__item_strong">2x</strong> option 1</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">free</strong> option 2</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">unlimited</strong> option 3</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">unlimited</strong> option 4</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">1x</strong> option 5</li>
+                </ul>
+                <a href="#" class="button button_default button_common pref-plan__button">purchase</a>
+            </section>
+            <section class="pref-plan pref-plan_exclusive price-list__pref-plan">
+                <h3 class="pref-plan__title pref-plan__title_exclusive">plan 2</h3>
+                <h4 class="pref-plan__price">$20/month</h4>
+                <ul class="option-list pref-plan__option-list">
+                    <li class="option-list__item"><strong class="option-list__item_strong">2x</strong> option 1</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">free</strong> option 2</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">unlimited</strong> option 3</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">unlimited</strong> option 4</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">1x</strong> option 5</li>
+                </ul>
+                <a href="#" class="button button_default button_exclusive pref-plan__button">purchase</a>
+            </section>
+            <section class="pref-plan price-list__pref-plan">
+                <h3 class="pref-plan__title pref-plan__title_common">plan 3</h3>
+                <h4 class="pref-plan__price">$30/month</h4>
+                <ul class="option-list pref-plan__option-list">
+                    <li class="option-list__item"><strong class="option-list__item_strong">2x</strong> option 1</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">free</strong> option 2</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">unlimited</strong> option 3</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">unlimited</strong> option 4</li>
+                    <li class="option-list__item"><strong class="option-list__item_strong">1x</strong> option 5</li>
+                </ul>
+                <a href="#" class="button button_default button_common pref-plan__button">purchase</a>
+            </section>
+        </div>
+    </section>
+
+    <section class="section" id="support">
+        <h2 class="section__title">our customers <strong class="section__title_strong">love it!</strong></h2>
+        <div class="feedback-list">
+            <figure class="feedback feedback-list__feedback">
+                <a href="blocks/feedback-list/feedback/designer_Nicole_full.jpg" class="feedback__avatar-link" title="Click 'zoom' to enlarge photo"
+                    ><img src="blocks/feedback-list/feedback/designer_Nicole.jpg" alt="Nicole" class="feedback__avatar">
+                </a>
+                <figcaption>
+                    <a href="#" class="link feedback__person-site">Lorem ipsum</a>
+                    <p class="feedback__person-position">designer</p>
+                </figcaption>
+            </figure>
+            <figure class="feedback feedback-list__feedback">
+                <a href="blocks/feedback-list/feedback/marketing_expert_Sofie_full.jpg" class="feedback__avatar-link" title="Click 'zoom' to enlarge photo"
+                    ><img src="blocks/feedback-list/feedback/marketing_expert_Sofie.jpg" alt="Sofie" class="feedback__avatar">
+                </a>
+                <figcaption>
+                    <a href="#" class="link feedback__person-site">Lorem ipsum</a>
+                    <p class="feedback__person-position">marketing expert</p>
+                </figcaption>
+            </figure>
+            <figure class="feedback feedback-list__feedback">
+                <a href="blocks/feedback-list/feedback/photographer_Alicia_full.jpg" class="feedback__avatar-link" title="Click 'zoom' to enlarge photo"
+                    ><img src="blocks/feedback-list/feedback/photographer_Alicia.jpg" alt="Alicia" class="feedback__avatar">
+                </a>
+                <figcaption>
+                    <a href="#" class="link feedback__person-site">Lorem ipsum</a>
+                    <p class="feedback__person-position">photographer</p>
+                </figcaption>
+            </figure>
+            <figure class="feedback feedback-list__feedback">
+                <a href="blocks/feedback-list/feedback/model_Jessica_full.jpg" class="feedback__avatar-link" title="Click 'zoom' to enlarge photo"
+                    ><img src="blocks/feedback-list/feedback/model_Jessica.jpg" alt="Jessica" class="feedback__avatar">
+                </a>
+                <figcaption>
+                    <a href="#tour" class="link feedback__person-site">Lorem ipsum</a>
+                    <p class="feedback__person-position">professional model</p>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <aside class="section social">
+        <h2 class="section__title social__title">Help us spread the word</h2>
+        <ul class="follow-list" id="follow-menu" role="group" tabindex="-1">
+            <li class="follow-list__item"><a href="#" class="link follow-list__link follow-list__link_tw" aria-label="Twitter" title="Twitter"></a></li>
+            <li class="follow-list__item"><a href="#" class="link follow-list__link follow-list__link_fb" aria-label="Facebook" title="Facebook"></a></li>
+            <li class="follow-list__item"><a href="#" class="link follow-list__link follow-list__link_gp" aria-label="Google plus" title="Google plus"></a></li>
+            <li class="follow-list__item"><a href="#" class="link follow-list__link follow-list__link_pi" aria-label="Pinterest" title="Pinterest"></a></li>
+            <li class="follow-list__item"><a href="#" class="link follow-list__link follow-list__link_in" aria-label="LinkedIn" title="LinkedIn"></a></li>
+        </ul>
+        <a href="#tour" accesskey="q" class="scroll-up" title="to get to TOP press: 'Alt + Q' or 'Alt + Shift + Q'">^</a>
+    </aside>
+
+    <footer class="footer">
+        <ul class="menu footer__menu">
+            <li class="menu__item"><a href="#" class="link menu__link_for-footer">about</a></li>
+            <li class="menu__item"><a href="#" class="link menu__link_for-footer">careers</a></li>
+            <li class="menu__item"><a href="#" class="link menu__link_for-footer">privacy policy</a></li>
+            <li class="menu__item"><a href="#" class="link menu__link_for-footer">press & media</a></li>
+            <li class="menu__item"><a href="#" class="link menu__link_for-footer">contact</a></li>
+        </ul>
+        <small class="footer__additional-info">
+            © 2013 Launchpad. All Rights Reserved | Designed by
+            <a href="#" class="footer__contact-link">w3layouts</a>
+        </small>
+    </footer>
+
+    <script>
+        window.onload = function () {
+            loadStylesheet('https://fonts.googleapis.com/css?family=Lato:300,400');
+            loadStylesheet('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+            loadScript('blocks/feedback-list/feedback/enlargePhoto.js');
+
+            function loadStylesheet(link){
+                let a = document.createElement("link");
+
+                a.rel = "stylesheet";
+                a.href = link;
+                document.getElementsByTagName("head")[0].appendChild(a);
+            }
+
+            function loadScript(src) {
+                let a = document.createElement('script');
+
+                a.src = src;
+                document.getElementsByTagName("head")[0].appendChild(a);
+            }
+        }
+    </script>
+
+</body>
+</html>

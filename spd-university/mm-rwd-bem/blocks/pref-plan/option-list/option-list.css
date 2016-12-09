@@ -1,0 +1,45 @@
+.option-list {
+    padding-left: 0;
+
+    list-style: none;
+}
+
+.option-list__item {
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    display: block;
+    padding: 8px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.option-list__item_strong {
+    text-transform: capitalize;
+
+    color: #1b8dfc;
+}
+
+@media screen and (min-width: 768px) {
+    .option-list__item {
+        font-size: 18px;
+
+        padding: 10px;
+    }
+
+    .option-list__item_strong {
+        font-weight: normal;
+    }
+}
+
+@media print {
+    .option-list {
+        padding-top: 5pt;
+    }
+
+    .option-list__item {
+        padding: 5pt;
+        border-bottom: 1pt solid #ddd;
+    }
+}

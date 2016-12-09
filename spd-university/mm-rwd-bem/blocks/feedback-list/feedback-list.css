@@ -1,0 +1,30 @@
+.feedback-list {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+
+    text-align: center;
+
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.feedback-list__feedback {
+    display: inline-block; /* for IE9 */
+
+    max-width: 320px;
+    margin: 15px 5px;
+
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 23%;
+    flex: 1 1 23%;
+}

@@ -1,0 +1,73 @@
+.dfn-list {
+    font-family: 'Montserrat', sans-serif;
+
+    display: inline-block;
+}
+
+.dfn-list__item-title {
+    position: relative;
+
+    margin: 10px auto 5px;
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.dfn-list__item-title:after {
+    position: absolute;
+    top: -6px;
+    left: -32px;
+
+    width: 27px;
+    height: 27px;
+    content: '';
+    background: transparent url(features_sprite.jpg);
+}
+
+.dfn-list__item-title_option:after {
+    background-position: -12px -2px;
+}
+
+.dfn-list__item-title_security:after {
+    top: 0;
+    left: -25px;
+
+    width: 23px;
+    height: 25px;
+
+    background-position: -78px -7px;
+}
+
+.dfn-list__item-title_mobile:after {
+    background-position: -40px -2px;
+}
+
+.dfn-list__item-title_customize:after {
+    background-position: -138px -3px;
+}
+
+.dfn-list__item-title_new-design:after {
+    background-position: -107px -3px;
+}
+
+.dfn-list__item-details {
+    font-size: 14px;
+
+    margin: 0;
+}
+
+@media print {
+    .dfn-list__item-title,
+    .dfn-list__item-details {
+        display: block;
+        text-align: center;
+    }
+
+    .dfn-list__item-title {
+        margin-top: 10pt;
+    }
+
+    .dfn-list__item-details {
+        font-size: 10pt;
+    }
+}

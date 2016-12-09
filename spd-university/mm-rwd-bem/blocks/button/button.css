@@ -1,0 +1,81 @@
+.button {
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+
+    display: inline-block;
+}
+
+.button_default {
+    font-size: 15px;
+
+    padding: 5px;
+    border: 2px solid #3998f5;
+    border-radius: 4px;
+
+    -webkit-transition: all .1s;
+    transition: all .1s;
+}
+
+@media screen and (min-width: 768px) {
+    .button_default {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+.button_common {
+    color: #3998f5;
+    background-color: #fff;
+}
+
+.button_common:hover {
+    color: #fff;
+    background-color: #3998f5;
+}
+
+.button_exclusive {
+    color: #fff;
+    background-color: #3998f5;
+}
+
+.button_exclusive:hover {
+    border: 2px solid #1b8dfc;
+    background-color: #1b8dfc;
+}
+
+.button_download {
+    padding: 10px 20px;
+    padding-right: 35px;
+
+    color: #fff;
+    border: 1px solid #0a65be;
+    border-radius: 2px;
+
+    background-color: #3998f5;
+    background-image: -webkit-linear-gradient(top, #3998f5, #0c7fef);
+    background-image: linear-gradient(to bottom, #3998f5, #0c7fef);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 #3998f5;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.31);
+}
+
+.button_download:after {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+
+    content: url(arrow.png);
+}
+
+.button_download:hover {
+    color: #fff;
+    background-image: -webkit-linear-gradient(top, #0c7fef, #3998f5);
+    background-image: linear-gradient(to bottom, #0c7fef, #3998f5);
+}
+
+@media print {
+    .button_default {
+        width: 81.45%;
+        margin: 10pt auto;
+    }
+}

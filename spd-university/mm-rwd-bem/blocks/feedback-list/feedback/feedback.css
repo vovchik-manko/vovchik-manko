@@ -1,0 +1,57 @@
+.feedback__avatar {
+    min-width: 180px;
+    max-width: 100%;
+
+    box-sizing: border-box;
+    border: 7px solid #fff;
+    box-shadow: 0 0 7px #aaa;
+}
+
+.feedback__avatar-link {
+    position: relative;
+
+    display: inline-block;
+    width: 100%;
+}
+
+.feedback__avatar-link:after {
+    position: absolute;
+    top: 7px;
+    left: 135px;
+
+    margin: 0;
+
+    content: url(zoom_small.png);
+    opacity: 0;
+
+    -webkit-transition: all ease-in 0.2s;
+    transition: all ease-in 0.2s;
+}
+
+.feedback__avatar-link:hover:after {
+    top: 95px;
+    opacity: .9;
+}
+
+.feedback__person-site {
+    font-size: 20px;
+}
+
+.feedback__person-site:hover {
+    color: #3998f5;
+}
+
+.feedback__person-position {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+
+    margin: 0;
+}
+
+@media screen and (min-width: 890px) {
+    .feedback__avatar-link:after {
+        content: url(zoom.png);
+    }
+}
+

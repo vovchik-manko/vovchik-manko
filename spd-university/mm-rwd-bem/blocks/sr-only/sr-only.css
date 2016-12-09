@@ -1,0 +1,31 @@
+.sr-only {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.sr-only-focusable:focus {
+    width: auto;
+    height: auto;
+    margin: 0;
+
+    overflow: visible;
+    clip: auto;
+}
+
+.sr-only_highlight {
+    padding: 5px;
+
+    text-decoration: none;
+    border-radius: 3px;
+    opacity: .8;
+
+    color: #fff;
+    background: #3998f5;
+}
