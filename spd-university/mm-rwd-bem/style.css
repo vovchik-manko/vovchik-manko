@@ -417,7 +417,7 @@ body {
   position: absolute;
   top: 3px;
   right: 5px;
-  content: url(arrow.png);
+  content: url(blocks/button/arrow.png);
 }
 .button_download:hover {
   color: #fff;
@@ -457,7 +457,7 @@ body {
 }
 @media screen and (min-width: 1024px) {
   .features__list-container {
-    background: url(content-banner-img1.jpg) no-repeat right center;
+    background: url(blocks/features/content-banner-img1.jpg) no-repeat right center;
     background-size: auto;
     background-blend-mode: color;
     background-color: rgba(247, 247, 247, 0.7);
@@ -490,7 +490,7 @@ body {
   width: 27px;
   height: 27px;
   content: '';
-  background: transparent url(features_sprite.jpg);
+  background: transparent url(blocks/features/dfn-list/features_sprite.jpg);
 }
 .dfn-list__item-title_option:after {
   background-position: -12px -2px;
@@ -730,7 +730,7 @@ body {
   top: 7px;
   left: 135px;
   margin: 0;
-  content: url(zoom_small.png);
+  content: url(blocks/feedback-list/feedback/zoom_small.png);
   opacity: 0;
   -webkit-transition: all ease-in 0.2s;
   transition: all ease-in 0.2s;
@@ -753,7 +753,7 @@ body {
 }
 @media screen and (min-width: 890px) {
   .feedback__avatar-link:after {
-    content: url(zoom.png);
+    content: url(blocks/feedback-list/feedback/zoom.png);
   }
 }
 .follow-list {
@@ -781,7 +781,7 @@ body {
 .follow-list__link {
   padding: 20px;
   border-radius: 50%;
-  background: transparent url(img-sprite.png) no-repeat;
+  background: transparent url(blocks/follow-list/img-sprite.png) no-repeat;
 }
 .follow-list__link_tw {
   background-position: -1px -1px;
