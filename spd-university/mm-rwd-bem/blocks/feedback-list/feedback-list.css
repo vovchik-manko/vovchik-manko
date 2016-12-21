@@ -52,7 +52,7 @@
 
     margin: 0;
 
-    content: url(zoom_small.png);
+    content: url(blocks/feedback-list/zoom_small.png);
     opacity: 0;
     -webkit-transition: all ease-in 0.2s;
     transition: all ease-in 0.2s;
@@ -81,6 +81,6 @@
 
 @media screen and (min-width: 890px) {
     .feedback-list__link:after {
-        content: url(zoom.png);
+        content: url(blocks/feedback-list/zoom.png);
     }
 }
