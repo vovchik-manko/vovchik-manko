@@ -5,14 +5,8 @@
     min-width: 150px;
     max-width: 300px;
 
-    padding-bottom: 10px;
-
     border-radius: 5px;
     box-shadow: 0 0 7px #aaa;
-}
-
-.pref-plan_exclusive {
-    padding-bottom: 15px;
 }
 
 .pref-plan__title {
@@ -20,22 +14,18 @@
     font-size: 18px;
 
     text-transform: capitalize;
+
+    margin: 0;
+    padding: 15px;
 }
 
 .pref-plan__title_common {
-    margin: 0;
-    padding: 10px;
-
     color: #333;
     border-radius: 5px 5px 0 0;
     background-color: #fff;
 }
 
 .pref-plan__title_exclusive {
-    margin: 0;
-    margin-top: -4px;
-    padding: 12px;
-
     color: #fff;
     border-radius: 5px 5px 0 0;
     background-color: #333;
@@ -50,7 +40,7 @@
     padding: 10px;
 
     color: #ddd;
-    background-color: #202020;
+    background-color: #222;
 }
 
 .pref-plan__option-list {
@@ -61,10 +51,29 @@
     width: 81.45%;
     max-width: 180px;
     margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 389px) {
+    .pref-plan__title {
+        position: relative;
+    }
+
+    .pref-plan__title:after {
+        position: absolute;
+        top: 15px;
+        right: 10px;
+
+        content: attr(left-pointer);
+    }
 }
 
 
 @media screen and (min-width: 480px) and (orientation: landscape) {
+    .pref-plan__title {
+        padding: 8px;
+    }
+
     .pref-plan__option-list {
         font-size: 15px;
         padding: 4px;
@@ -74,14 +83,6 @@
 @media screen and (min-width: 768px) {
     .pref-plan__title {
         font-size: 22px;
-    }
-
-    .pref-plan__title_common {
-        padding: 15px;
-    }
-
-    .pref-plan__title_exclusive {
-        margin-top: -10px;
         padding: 20px;
     }
 
@@ -100,7 +101,6 @@
 @media print {
     .pref-plan {
         margin: 5pt auto;
-        padding-bottom: 2pt;
         border-radius: 5px;
         border: 2pt solid #aaa;
         box-shadow: none;
@@ -111,8 +111,6 @@
     }
 
     .pref-plan__title_exclusive {
-        margin-top: -3pt;
-        padding-bottom: 12pt;
         border-top: 1pt solid #aaa;
     }
 
@@ -120,5 +118,9 @@
         padding: 8pt;
         border-top: 1pt solid #999;
         border-bottom: 1pt solid #999;
+    }
+
+    pref-plan__button {
+        margin-bottom: 2pt;
     }
 }

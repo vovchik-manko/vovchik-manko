@@ -1,5 +1,5 @@
 .features__list {
-    max-width: 90%;
+    max-width: 85%;
 
     text-align: left;
 }
@@ -12,7 +12,7 @@
 
 @media screen and (min-width: 1024px) {
     .features__list-container {
-        background: url(content-banner-img1.jpg) no-repeat right center;
+        background: url(blocks/features/content-banner-img1.jpg) no-repeat right center;
         background-size: auto;
 
         background-blend-mode: color;

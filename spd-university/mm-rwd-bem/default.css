@@ -5,6 +5,7 @@
 @import "blocks/basics.css";
 
 /* Components */
+@import "fontello/css/fontello.css";
 @import "blocks/helpers.css";
 @import "blocks/sr-only/sr-only.css";
 @import "blocks/link/link.css";

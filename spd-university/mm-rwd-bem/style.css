@@ -1,4 +1,5 @@
 /* Base */
+@import "fontello/css/fontello.css";
 html {
   font-size: 10px;
 }
@@ -50,7 +51,7 @@ body {
   margin: auto;
 }
 .hide {
-  display: none;
+  display: none !important;
 }
 .sr-only {
   position: absolute;
@@ -319,7 +320,7 @@ body {
   }
 }
 .features__list {
-  max-width: 90%;
+  max-width: 85%;
   text-align: left;
 }
 .features__list-container {
@@ -349,39 +350,15 @@ body {
   font-family: 'Montserrat', sans-serif;
   display: inline-block;
 }
+.features__icon {
+  font-size: 25px;
+}
 .dfn-list__item-title {
   position: relative;
+  left: -35px;
   margin: 10px auto 5px;
   font-size: 15px;
   font-weight: bold;
-}
-.dfn-list__item-title:after {
-  position: absolute;
-  top: -6px;
-  left: -32px;
-  width: 27px;
-  height: 27px;
-  content: '';
-  background: transparent url(blocks/features/dfn-list/features_sprite.jpg);
-}
-.dfn-list__item-title_option:after {
-  background-position: -12px -2px;
-}
-.dfn-list__item-title_security:after {
-  top: 0;
-  left: -25px;
-  width: 23px;
-  height: 25px;
-  background-position: -78px -7px;
-}
-.dfn-list__item-title_mobile:after {
-  background-position: -40px -2px;
-}
-.dfn-list__item-title_customize:after {
-  background-position: -138px -3px;
-}
-.dfn-list__item-title_new-design:after {
-  background-position: -107px -3px;
 }
 .dfn-list__item-details {
   font-size: 14px;
@@ -435,29 +412,22 @@ body {
   text-align: center;
   min-width: 150px;
   max-width: 300px;
-  padding-bottom: 10px;
   border-radius: 5px;
   box-shadow: 0 0 7px #aaa;
-}
-.pref-plan_exclusive {
-  padding-bottom: 15px;
 }
 .pref-plan__title {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   text-transform: capitalize;
+  margin: 0;
+  padding: 15px;
 }
 .pref-plan__title_common {
-  margin: 0;
-  padding: 10px;
   color: #333;
   border-radius: 5px 5px 0 0;
   background-color: #fff;
 }
 .pref-plan__title_exclusive {
-  margin: 0;
-  margin-top: -4px;
-  padding: 12px;
   color: #fff;
   border-radius: 5px 5px 0 0;
   background-color: #333;
@@ -469,7 +439,7 @@ body {
   margin: 0;
   padding: 10px;
   color: #ddd;
-  background-color: #202020;
+  background-color: #222;
 }
 .pref-plan__option-list {
   margin-top: 10px;
@@ -478,8 +448,23 @@ body {
   width: 81.45%;
   max-width: 180px;
   margin-top: 5px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 389px) {
+  .pref-plan__title {
+    position: relative;
+  }
+  .pref-plan__title:after {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    content: attr(left-pointer);
+  }
 }
 @media screen and (min-width: 480px) and (orientation: landscape) {
+  .pref-plan__title {
+    padding: 8px;
+  }
   .pref-plan__option-list {
     font-size: 15px;
     padding: 4px;
@@ -488,12 +473,6 @@ body {
 @media screen and (min-width: 768px) {
   .pref-plan__title {
     font-size: 22px;
-  }
-  .pref-plan__title_common {
-    padding: 15px;
-  }
-  .pref-plan__title_exclusive {
-    margin-top: -10px;
     padding: 20px;
   }
   .pref-plan__price {
@@ -508,7 +487,6 @@ body {
 @media print {
   .pref-plan {
     margin: 5pt auto;
-    padding-bottom: 2pt;
     border-radius: 5px;
     border: 2pt solid #aaa;
     box-shadow: none;
@@ -517,14 +495,15 @@ body {
     padding: 10pt;
   }
   .pref-plan__title_exclusive {
-    margin-top: -3pt;
-    padding-bottom: 12pt;
     border-top: 1pt solid #aaa;
   }
   .pref-plan__price {
     padding: 8pt;
     border-top: 1pt solid #999;
     border-bottom: 1pt solid #999;
+  }
+  pref-plan__button {
+    margin-bottom: 2pt;
   }
 }
 .option-list {
@@ -601,7 +580,7 @@ body {
   top: 7px;
   left: 135px;
   margin: 0;
-  content: url(blocks/feedback-list/zoom_small.png);
+  content: url(zoom_small.png);
   opacity: 0;
   -webkit-transition: all ease-in 0.2s;
   transition: all ease-in 0.2s;
@@ -624,7 +603,7 @@ body {
 }
 @media screen and (min-width: 890px) {
   .feedback-list__link:after {
-    content: url(blocks/feedback-list/zoom.png);
+    content: url(zoom.png);
   }
 }
 .follow-list {
@@ -639,7 +618,7 @@ body {
   flex-wrap: nowrap;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   list-style: none;
   padding-left: 0;
@@ -647,42 +626,32 @@ body {
 .follow-list__item {
   display: inline-block;
   /* for IE9 */
-  margin: 10px;
+  margin: 5px;
 }
 .follow-list__link {
-  padding: 20px;
+  display: inline-block;
+  padding: 0;
+}
+.follow-list__icon {
+  font-size: 20px;
+  color: #fff;
+  background-color: #000;
+  display: inline-block;
+  padding: 10px 8px;
   border-radius: 50%;
-  background: transparent url(blocks/follow-list/img-sprite.png) no-repeat;
 }
-.follow-list__link_tw {
-  background-position: -1px -1px;
+.follow-list__icon:hover {
+  background-color: #0c7fef;
 }
-.follow-list__link_fb {
-  background-position: -56px 0;
-}
-.follow-list__link_gp {
-  background-position: -112px 0;
-}
-.follow-list__link_pi {
-  background-position: -169px 0;
-}
-.follow-list__link_in {
-  background-position: -226px 0;
-}
-.follow-list__link_tw:hover {
-  background-position: -1px -43px;
-}
-.follow-list__link_fb:hover {
-  background-position: -56px -42px;
-}
-.follow-list__link_gp:hover {
-  background-position: -112px -42px;
-}
-.follow-list__link_pi:hover {
-  background-position: -169px -42px;
-}
-.follow-list__link_in:hover {
-  background-position: -226px -42px;
+@media screen and (min-width: 380px) {
+  .follow-list {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .follow-list__item {
+    margin: 10px;
+  }
 }
 @media print {
   .social {
@@ -700,16 +669,16 @@ body {
   }
 }
 .scroll-up {
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
   text-decoration: none;
   position: fixed;
   right: 20px;
-  bottom: 100px;
-  padding: 5px 10px 0;
+  bottom: 90px;
+  padding: 10px 17px 5px;
   color: #fff;
   background-color: #3998f5;
-  border-radius: 5px;
+  border-radius: 50%;
   opacity: .6;
   -webkit-transition: opacity .35s ease;
   transition: opacity .35s ease;
@@ -767,6 +736,7 @@ body {
   -ms-flex-pack: justify;
   justify-content: center;
   opacity: .2;
+  -webkit-transition: all .5s ease;
   transition: all .5s ease;
 }
 .header__menu-item {

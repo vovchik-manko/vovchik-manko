@@ -1,17 +1,17 @@
 .scroll-up {
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     text-decoration: none;
 
     position: fixed;
     right: 20px;
-    bottom: 100px;
+    bottom: 90px;
 
-    padding: 5px 10px 0;
+    padding: 10px 17px 5px;
 
     color: #fff;
     background-color: #3998f5;
-    border-radius: 5px;
+    border-radius: 50%;
     opacity: .6;
 
     -webkit-transition: opacity .35s ease;
