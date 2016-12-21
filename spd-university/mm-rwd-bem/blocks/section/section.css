@@ -3,20 +3,7 @@
 
     margin: 0 auto;
 
-    padding-top: 90px;
     padding-bottom: 40px;
-}
-
-@media screen and (min-width: 493px) and (max-width: 767px) and (orientation: landscape) {
-    .section {
-        padding-top: 40px;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .section {
-        padding-top: 70px;
-    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -63,7 +50,6 @@
         width: 96%;
 
         page-break-inside: avoid;
-        padding-top: 20pt;
         padding-bottom: 5pt;
     }
 

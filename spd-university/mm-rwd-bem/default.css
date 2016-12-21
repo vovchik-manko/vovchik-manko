@@ -1,0 +1,30 @@
+/* 3-rd party libraries */
+@import url("https://necolas.github.io/normalize.css/5.0.0/normalize.css");
+
+/* Base */
+@import "blocks/basics.css";
+
+/* Components */
+@import "blocks/helpers.css";
+@import "blocks/sr-only/sr-only.css";
+@import "blocks/link/link.css";
+@import "blocks/menu/menu.css";
+@import "blocks/logo/logo.css";
+@import "blocks/about-product/about-product.css";
+@import "blocks/product-proto/product-proto.css";
+@import "blocks/button/button.css";
+@import "blocks/banner-content/banner-content.css";
+@import "blocks/features/features.css";
+@import "blocks/features/dfn-list/dfn-list.css";
+@import "blocks/price-list/price-list.css";
+@import "blocks/pref-plan/pref-plan.css";
+@import "blocks/pref-plan/option-list/option-list.css";
+@import "blocks/feedback-list/feedback-list.css";
+@import "blocks/follow-list/follow-list.css";
+@import "blocks/scroll-up/scroll-up.css";
+
+/* Common */
+@import "blocks/header/header.css";
+@import "blocks/section/section.css";
+@import "blocks/footer/footer.css";
+

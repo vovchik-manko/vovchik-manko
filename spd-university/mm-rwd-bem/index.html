@@ -6,17 +6,18 @@
     <meta name="keywords" content="launchpad, platform, e-commerce">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="blocks/logo/logo_small_2.png" type="image/jpg" sizes="20x28">
-    <title>Task 08. BEM for Launchpad</title>
-    <link rel="stylesheet" href="style.css" media="(min-width: 768px)">
+    <title>Task 10. RWD for Launchpad</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="header">
         <a href="#" title="About Launchpad" class="link logo header__logo" id="#start">
-            <img src="blocks/logo/logo_small_2.png" alt="logo" class="logo__img">
+            <img src="blocks/logo/logo_small_2.png" alt="launchpad_site" class="logo__img">
             <h1 class="logo__title">launchpad</h1>
         </a>
         <nav class="header__nav">
+            <button title="Navigation" class="header__menu-btn button button_default button_common">Menu</button>
             <ul class="menu header__menu">
                 <li class="menu__item header__menu-item"><a href="#tour" class="link menu__link_for-nav menu__link_for-nav_primary">Tour</a></li>
                 <li class="menu__item header__menu-item"><a href="#strengths" class="link menu__link_for-nav">Features</a></li>
@@ -27,8 +28,8 @@
         </nav>
     </header>
 
-    <section class="section about-product" id="tour">
-        <h2 class="section__title">introducing <b>Paypaul</b></h2>
+    <section class="section about-product header__section" id="tour">
+        <h2 class="section__title">introducing <b>Paypal</b></h2>
         <p class="section__text about-product__summary">A revolutionary e-commerce Platform</p>
         <figure class="product-proto">
             <img src="blocks/product-proto/banner.png" alt="devices" class="product-proto__img">
@@ -44,7 +45,7 @@
     </section>
 
     <div class="banner-content">
-        <section class="section features" id="strengths">
+        <section class="section header__section features" id="strengths">
             <h2 class="section__title">newly added <strong class="section__title_strong">features</strong></h2>
             <div class="features__list-container">
                 <dl class="features__list dfn-list">
@@ -63,7 +64,7 @@
         </section>
     </div>
 
-    <section class="section pricing" id="price">
+    <section class="section header__section pricing" id="price">
         <h2 class="section__title">pricing <strong class="section__title_strong">table</strong></h2>
         <div class="price-list">
             <section class="pref-plan price-list__pref-plan">
@@ -105,49 +106,49 @@
         </div>
     </section>
 
-    <section class="section" id="support">
+    <section class="section header__section" id="support">
         <h2 class="section__title">our customers <strong class="section__title_strong">love it!</strong></h2>
         <div class="feedback-list">
-            <figure class="feedback feedback-list__feedback">
-                <a href="blocks/feedback-list/feedback/designer_Nicole_full.jpg" class="feedback__avatar-link" title="Click 'zoom' to enlarge photo"
-                    ><img src="blocks/feedback-list/feedback/designer_Nicole.jpg" alt="Nicole" class="feedback__avatar">
+            <figure class="feedback-list__item">
+                <a href="blocks/feedback-list/designer_Nicole_full.jpg" class="feedback-list__link" title="Click 'zoom' to enlarge photo"
+                ><img src="blocks/feedback-list/designer_Nicole.jpg" alt="Nicole" class="feedback-list__avatar">
                 </a>
                 <figcaption>
-                    <a href="#" class="link feedback__person-site">Lorem ipsum</a>
-                    <p class="feedback__person-position">designer</p>
+                    <a href="#" class="link feedback-list__person-site">Lorem ipsum</a>
+                    <p class="feedback-list__person-position">designer</p>
                 </figcaption>
             </figure>
-            <figure class="feedback feedback-list__feedback">
-                <a href="blocks/feedback-list/feedback/marketing_expert_Sofie_full.jpg" class="feedback__avatar-link" title="Click 'zoom' to enlarge photo"
-                    ><img src="blocks/feedback-list/feedback/marketing_expert_Sofie.jpg" alt="Sofie" class="feedback__avatar">
+            <figure class="feedback-list__item">
+                <a href="blocks/feedback-list/marketing_expert_Sofie_full.jpg" class="feedback-list__link" title="Click 'zoom' to enlarge photo"
+                ><img src="blocks/feedback-list/marketing_expert_Sofie.jpg" alt="Sofie" class="feedback-list__avatar">
                 </a>
                 <figcaption>
-                    <a href="#" class="link feedback__person-site">Lorem ipsum</a>
-                    <p class="feedback__person-position">marketing expert</p>
+                    <a href="#" class="link feedback-list__person-site">Lorem ipsum</a>
+                    <p class="feedback-list__person-position">marketing expert</p>
                 </figcaption>
             </figure>
-            <figure class="feedback feedback-list__feedback">
-                <a href="blocks/feedback-list/feedback/photographer_Alicia_full.jpg" class="feedback__avatar-link" title="Click 'zoom' to enlarge photo"
-                    ><img src="blocks/feedback-list/feedback/photographer_Alicia.jpg" alt="Alicia" class="feedback__avatar">
+            <figure class="feedback-list__item">
+                <a href="blocks/feedback-list/photographer_Alicia_full.jpg" class="feedback-list__link" title="Click 'zoom' to enlarge photo"
+                ><img src="blocks/feedback-list/photographer_Alicia.jpg" alt="Alicia" class="feedback-list__avatar">
                 </a>
                 <figcaption>
-                    <a href="#" class="link feedback__person-site">Lorem ipsum</a>
-                    <p class="feedback__person-position">photographer</p>
+                    <a href="#" class="link feedback-list__person-site">Lorem ipsum</a>
+                    <p class="feedback-list__person-position">photographer</p>
                 </figcaption>
             </figure>
-            <figure class="feedback feedback-list__feedback">
-                <a href="blocks/feedback-list/feedback/model_Jessica_full.jpg" class="feedback__avatar-link" title="Click 'zoom' to enlarge photo"
-                    ><img src="blocks/feedback-list/feedback/model_Jessica.jpg" alt="Jessica" class="feedback__avatar">
+            <figure class="feedback-list__item">
+                <a href="blocks/feedback-list/model_Jessica_full.jpg" class="feedback-list__link" title="Click 'zoom' to enlarge photo"
+                ><img src="blocks/feedback-list/model_Jessica.jpg" alt="Jessica" class="feedback-list__avatar">
                 </a>
                 <figcaption>
-                    <a href="#tour" class="link feedback__person-site">Lorem ipsum</a>
-                    <p class="feedback__person-position">professional model</p>
+                    <a href="#tour" class="link feedback-list__person-site">Lorem ipsum</a>
+                    <p class="feedback-list__person-position">professional model</p>
                 </figcaption>
             </figure>
         </div>
     </section>
 
-    <aside class="section social">
+    <aside class="section header__section social">
         <h2 class="section__title social__title">Help us spread the word</h2>
         <ul class="follow-list" id="follow-menu" role="group" tabindex="-1">
             <li class="follow-list__item"><a href="#" class="link follow-list__link follow-list__link_tw" aria-label="Twitter" title="Twitter"></a></li>
@@ -175,23 +176,34 @@
 
     <script>
         window.onload = function() {
+            var menuButton = document.querySelector('.header__menu-btn');
+            var nav = document.querySelector('.header__menu');
+
+            menuButton.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+
+            nav.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+
             loadStylesheet('https://fonts.googleapis.com/css?family=Lato:300,400');
             loadStylesheet('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
-            loadScript('blocks/feedback-list/feedback/enlargePhoto.js');
+            loadScript('blocks/feedback-list/enlargePhoto.js');
 
-            function loadStylesheet(link){
-                let a = document.createElement("link");
+            function loadScript(src) {
+                var a = document.createElement('script');
 
-                a.rel = "stylesheet";
-                a.href = link;
+                a.src = src;
                 document.getElementsByTagName("head")[0].appendChild(a);
             }
 
-            function loadScript(src) {
-                let a = document.createElement('script');
+            function loadStylesheet(link){
+                var a = document.createElement("link");
 
-                a.src = src;
+                a.rel = "stylesheet";
+                a.href = link;
                 document.getElementsByTagName("head")[0].appendChild(a);
             }
         };

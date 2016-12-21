@@ -16,14 +16,17 @@
 }
 
 .menu__link_for-nav {
+    display: block;
+
     font-weight: bold;
     letter-spacing: 2px;
 
-    box-sizing: border-box;
+    margin: 3px 0;
+    padding: 15px;
 
     color: #eee;
     background-color: #333;
-    border-radius: 5px 5px 0 0;
+    border-radius: 4px;
 }
 
 .menu__link_for-nav:hover {
@@ -32,6 +35,12 @@
 
 .menu__link_for-footer {
     font-size: 16px;
+}
+
+@media screen and (min-width: 330px) {
+    .menu__link_for-nav {
+        padding: 5px 8px;
+    }
 }
 
 @media screen and (min-width: 480px) and (orientation: landscape) {
@@ -46,7 +55,7 @@
     }
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 517px) {
     .menu__link_for-nav {
         color: #333;
         background-color: #ddd;
@@ -63,6 +72,7 @@
         color: #999;
         background-color: #fff;
         border-radius: 0;
+        border-bottom: 2px solid transparent;
     }
 
     .menu__link_for-nav_primary {
@@ -71,7 +81,7 @@
 
     .menu__link_for-nav:hover {
         color: #333;
-        box-shadow: 0 2px #333;
+        border-color: #333;
         background-color: #fff;
     }
 
