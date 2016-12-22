@@ -14,7 +14,7 @@
         if (window.matchMedia(media).matches) {
             expandList(prefPlanEx);
 
-            priceList.addEventListener('click', function(event) {
+            priceList.addEventListener('touchend', function(event) {
                 var target = event.target;
 
                 if (target.className.indexOf('pref-plan__title') === -1) return;
