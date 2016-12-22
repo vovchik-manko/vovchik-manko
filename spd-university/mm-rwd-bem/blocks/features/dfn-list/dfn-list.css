@@ -32,6 +32,7 @@
     }
 
     .dfn-list__item-title {
+        position: static;
         margin-top: 10pt;
     }
 

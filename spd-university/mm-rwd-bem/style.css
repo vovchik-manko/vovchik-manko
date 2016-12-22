@@ -339,7 +339,7 @@ body {
 @media print {
   .features__list-container {
     min-height: 10pt;
-    margin-top: 30pt;
+    margin-top: 10pt;
   }
   .features__list {
     margin: 0 auto;
@@ -371,6 +371,7 @@ body {
     text-align: center;
   }
   .dfn-list__item-title {
+    position: static;
     margin-top: 10pt;
   }
   .dfn-list__item-details {
@@ -805,11 +806,6 @@ body {
     margin-right: 20rem;
   }
 }
-@media print {
-  .header {
-    position: static;
-  }
-}
 .header__section {
   padding-top: 40px;
   /* header height */
@@ -825,6 +821,12 @@ body {
   }
 }
 @media print {
+  .header {
+    position: static;
+  }
+  .header__menu-btn {
+    display: none;
+  }
   .header__section {
     padding-top: 20pt;
   }

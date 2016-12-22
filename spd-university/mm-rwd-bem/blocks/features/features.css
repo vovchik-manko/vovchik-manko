@@ -23,7 +23,7 @@
 @media print {
     .features__list-container {
         min-height: 10pt;
-        margin-top: 30pt;
+        margin-top: 10pt;
     }
 
     .features__list {

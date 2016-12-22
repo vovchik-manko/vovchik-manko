@@ -145,12 +145,6 @@
 }
 
 
-@media print {
-    .header {
-        position: static;
-    }
-}
-
 .header__section {
     padding-top: 40px; /* header height */
 }
@@ -167,7 +161,16 @@
     }
 }
 
+
 @media print {
+    .header {
+        position: static;
+    }
+
+    .header__menu-btn {
+        display: none;
+    }
+
     .header__section {
         padding-top: 20pt;
     }
