@@ -2,7 +2,7 @@
     var prefPlans = document.querySelectorAll('.pref-plan__content'),
         priceList = document.getElementsByClassName('price-list')[0],
         prefPlanEx = document.querySelector('.pref-plan__title_exclusive'),
-        widthForCarousel = '(max-width: 389px)';
+        widthForCarousel = '(max-width: 420px)';
 
     triggerCarousel(widthForCarousel);
 
@@ -14,7 +14,7 @@
         if (window.matchMedia(media).matches) {
             expandList(prefPlanEx);
 
-            priceList.addEventListener('touchend', function(event) {
+            priceList.addEventListener('click', function(event) {
                 var target = event.target;
 
                 if (target.className.indexOf('pref-plan__title') === -1) return;
@@ -32,7 +32,7 @@
         for (var i = 0; i < prefPlans.length; i++) {
             if (prefPlans[i] === el.nextElementSibling) continue;
             prefPlans[i].setAttribute('hidden', '');
-            prefPlans[i].previousElementSibling.setAttribute('left-pointer', '◄');
+            prefPlans[i].previousElementSibling.setAttribute('left-pointer', '\u25C0'); // ◄
         }
 
         if (el.nextElementSibling.hasAttribute('hidden')) {
