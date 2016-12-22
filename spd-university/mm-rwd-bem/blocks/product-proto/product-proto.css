@@ -17,7 +17,12 @@
 }
 
 .product-proto_strong {
+    text-decoration: none;
     color: #3998f5;
+}
+
+.product-proto_strong:hover {
+    color: #333;
 }
 
 .product-proto_small {
@@ -38,5 +43,9 @@
 @media print {
     .product-proto__download {
         margin: 10pt auto;
+    }
+
+    .product-proto_strong {
+        text-decoration: underline;
     }
 }
