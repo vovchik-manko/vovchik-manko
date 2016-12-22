@@ -1,0 +1,28 @@
+.scroll-up {
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+
+  padding: 6px 13px 1px;
+
+  color: #fff;
+  background-color: @LIGHT-BLUE;
+  border-radius: 50%;
+  opacity: .6;
+
+  -webkit-transition: opacity .35s ease;
+  transition: opacity .35s ease;
+
+  &:hover {
+    color: #fff;
+    opacity: .9;
+  }
+
+  @media print {
+    visibility: hidden;
+  }
+}

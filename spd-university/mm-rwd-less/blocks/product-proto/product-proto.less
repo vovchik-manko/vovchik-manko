@@ -1,0 +1,52 @@
+.product-proto {
+  text-align: center;
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__button {
+    position: relative;
+
+    margin: 20px auto;
+  }
+
+  &__caption {
+    font-size: 120%;
+  }
+
+  &_strong {
+    text-decoration: none;
+    color: @LIGHT-BLUE;
+  }
+
+  &_strong:hover {
+    color: @default-font-color;
+  }
+
+  &_small {
+    font-family: @font-family-strong;
+    font-size: 100%;
+  }
+
+  @media screen and (min-width: 493px) and (max-width: 767px) and (orientation: landscape) {
+    &__img {
+      width: 80%;
+    }
+
+    &__button {
+      margin: 5px;
+    }
+  }
+
+  @media print {
+    &__download {
+      margin: 10pt auto;
+    }
+
+    &_strong {
+      text-decoration: underline;
+    }
+  }
+}

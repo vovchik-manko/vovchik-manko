@@ -1,0 +1,38 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: @default-font-family;
+    font-size: 14px;
+
+    width: 100%;
+    min-width: 270px;
+    margin: 0;
+
+    color: @default-font-color;
+    background-color: @default-bg-color;
+
+    @media print {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 12pt;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: .1in;
+    }
+
+    * {
+        color: black !important;
+        background: #fff !important;
+    }
+}

@@ -1,0 +1,88 @@
+.menu {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+    margin: 0 1px;
+  }
+
+  &__link_for-nav {
+    display: block;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    margin: 3px 0;
+    padding: 15px;
+
+    color: #eee;
+    background-color: #333;
+    border-radius: 4px;
+  }
+
+  &__link_for-nav:hover {
+    background-color: #ddd;
+  }
+
+  &__link_for-footer {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 330px) {
+    &__link_for-nav {
+      padding: 5px 8px;
+    }
+  }
+
+  @media screen and (min-width: 480px) and (orientation: landscape) {
+    &__link_for-nav {
+      color: @default-font-color;
+      background-color: #ddd;
+    }
+
+    &__link_for-nav:hover {
+      color: #eee;
+      background-color: #333;
+    }
+  }
+
+  @media screen and (min-width: 517px) {
+    &__link_for-nav {
+      color: @default-font-color;
+      background-color: #ddd;
+    }
+
+    &__link_for-nav:hover {
+      color: #eee;
+      background-color: #333;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    &__link_for-nav {
+      color: #999;
+      background-color: #fff;
+      border-radius: 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    &__link_for-nav_primary {
+      color: @default-font-color;
+    }
+
+    &__link_for-nav:hover {
+      color: #333;
+      border-color: #333;
+      background-color: #fff;
+    }
+
+    &__link_for-nav_primary:hover {
+      font-weight: bolder;
+      color: #000;
+    }
+  }
+}

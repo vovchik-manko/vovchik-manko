@@ -1,0 +1,80 @@
+.button {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  white-space: nowrap;
+
+  display: inline-block;
+
+  &_default {
+    font-size: 15px;
+
+    padding: 5px;
+    border: 2px solid @LIGHT-BLUE;
+    border-radius: 4px;
+    outline: none;
+
+    -webkit-transition: all .1s;
+    transition: all .1s;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  &_common {
+    color: @LIGHT-BLUE;
+    background-color: #fff;
+  }
+
+  &_common:hover {
+    color: #fff;
+    background-color: @LIGHT-BLUE;
+  }
+
+  &_exclusive {
+    color: #fff;
+    background-color: @LIGHT-BLUE;
+  }
+
+  &_exclusive:hover {
+    border: 2px solid @ROYAL-BLUE;
+    background-color: @ROYAL-BLUE;
+  }
+
+  &_download {
+    padding: 10px 20px;
+    padding-right: 35px;
+
+    color: #fff;
+    border: 1px solid darken(@ROYAL-BLUE, 50%);
+    border-radius: 2px;
+
+    background-color: @LIGHT-BLUE;
+    background-image: -webkit-linear-gradient(top, @LIGHT-BLUE, darken(@LIGHT-BLUE, 20%));
+    background-image: linear-gradient(to bottom, @LIGHT-BLUE, darken(@LIGHT-BLUE, 20%));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 0 @LIGHT-BLUE;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.31);
+  }
+
+  &_download:after {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+
+    content: url(blocks/button/arrow.png);
+  }
+
+  &_download:hover {
+    color: #fff;
+    background-image: -webkit-linear-gradient(top, darken(@LIGHT-BLUE, 20%), @LIGHT-BLUE);
+    background-image: linear-gradient(to bottom, darken(@LIGHT-BLUE, 20%), @LIGHT-BLUE);
+  }
+
+  @media print {
+    width: 81.45%;
+    margin: 10pt auto;
+  }
+}
+

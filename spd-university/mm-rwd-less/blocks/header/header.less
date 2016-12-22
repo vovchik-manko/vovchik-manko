@@ -1,0 +1,157 @@
+.header {
+  background-color: #fff;
+  text-align: center; /* for IE9 */
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+
+  width: 100%;
+
+  .flex-container();
+  .flex-horizontal-align-items(justify, space-between);
+  .flex-vertical-align-items();
+
+  &__sr-only {
+    top: 105%;
+    left: 5px;
+  }
+
+  &__nav {
+    display: inline-block;  /* for IE9 */
+
+    -ms-flex: 1;
+    flex: 1;
+  }
+
+  &__logo {
+    margin: 0 auto;
+    white-space: nowrap;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    right: 100%;
+
+    .flex-container();
+    .flex-horizontal-align-items(justify, center);
+
+    opacity: .2;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+  }
+
+  &__menu-item {
+    -ms-flex: 1 100%;
+    flex: 1 100%;
+
+    margin: 1px 2px;
+  }
+
+  &__menu.active {
+    left: 8px;
+    right: 8px;
+
+    opacity: .95;
+    background-color: #fff;
+  }
+
+  @media screen and (min-width: 330px) {
+    &__menu-btn {
+      display: none;
+    }
+
+    &__menu {
+      position: static;
+
+      -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+      .flex-horizontal-align-items(justify, center);
+
+      opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 480px) and (orientation: landscape) {
+    &__logo {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+
+      margin-bottom: 0;
+    }
+
+    &__menu {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+
+    .flex-horizontal-align-items(end, flex-end);
+    }
+  }
+
+  @media screen and (min-width: 550px) {
+    &__logo {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+
+      text-align: left;
+
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &__logo {
+      padding: 1rem 0;
+      margin-left: 5rem;
+    }
+
+    &__nav {
+      margin-right: 5rem;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    &__logo {
+      margin-left: 20rem;
+    }
+
+    &__nav {
+      margin-right: 20rem;
+    }
+  }
+
+
+  &__section {
+    padding-top: 40px; /* header height */
+  }
+
+  @media screen and (min-width: 330px) and (max-width: 516px) {
+    &__section {
+      padding-top: 60px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &__section {
+      padding-top: 50px;
+    }
+  }
+
+
+  @media print {
+    position: static;
+
+    &__menu-btn {
+      display: none;
+    }
+
+    &__section {
+      padding-top: 20pt;
+    }
+  }
+}
