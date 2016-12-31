@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="e-commerce platform">
+    <meta name="keywords" content="launchpad, platform, e-commerce">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="img/favicon_182x182.png" sizes="182x182">
+    <link rel="icon" href="img/favicon_16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="img/favicon_28x28.png" type="image/png" sizes="28x28">
+    <title>Task 11. SVG, Images</title>
+    <link rel="stylesheet" href="style-for-svg.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #startButton {
+            cursor: pointer;
+        }
+
+        .ambulance-container {
+            width: 100%;
+            max-width: 360px;
+            padding: 20px;
+
+            overflow: hidden;
+        }
+
+        .ambulance-container__button {
+            text-transform: capitalize;
+
+            display: block;
+            min-width: 200px;
+            margin: 0 auto;
+        }
+
+        @media screen and (min-width: 680px) {
+            .ambulance-container {
+                order: 1;
+            }
+
+            .thermometer {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--[if lt IE 9]>
+    <p class="browser-upgrade">
+        You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.
+    </p>
+    <![endif]-->
+    <noscript>
+        Some features of our site will not work properly, for your browser.
+        Please, enable your Javascript!
+    </noscript>
+
+    <div class="animation-container">
+        <svg class="thermometer" width="320" height="480" viewBox="0, 0, 320, 480" title="Click to show a temperature">
+            <g id="startButton">
+                <rect x="90" y="20" width="140" height="420" fill="#ccc" rx="10" ry="10"></rect>
+                <path id="thermometer-path" stroke="#333" fill="lemonchiffon" d="M 140 30 140 380 A 30 30 0 1 0 180 380 L 180 30 Z"/>
+                <g id="thermometer-text" font-size="14pt" font-family="sans-serif">
+                    <text x="130" y="90" text-anchor="end">42°</text>
+                    <text x="130" y="130" text-anchor="end">41°</text>
+                    <text x="130" y="170" text-anchor="end">40°</text>
+                    <text x="130" y="210" text-anchor="end">39°</text>
+                    <text x="130" y="250" text-anchor="end">38°</text>
+                    <text x="130" y="290" text-anchor="end" fill="crimson">37°</text>
+                    <text x="130" y="330" text-anchor="end">36°</text>
+                    <text x="130" y="370" text-anchor="end">35°</text>
+                </g>
+                <defs>
+                    <g id="degree-line" fill="none" stroke="#333" stroke-linecap="round" stroke-width="1">
+                        <line x1="130" y1="0" x2="150" y2="0"></line>
+                        <line x1="140" y1="4" x2="150" y2="4"></line>
+                        <line x1="140" y1="8" x2="150" y2="8"></line>
+                        <line x1="140" y1="12" x2="150" y2="12"></line>
+                        <line x1="140" y1="16" x2="150" y2="16"></line>
+                        <line x1="135" y1="20" x2="150" y2="20"></line>
+                        <line x1="140" y1="24" x2="150" y2="24"></line>
+                        <line x1="140" y1="28" x2="150" y2="28"></line>
+                        <line x1="140" y1="32" x2="150" y2="32"></line>
+                        <line x1="140" y1="36" x2="150" y2="36"></line>
+                        <line x1="130" y1="40" x2="150" y2="40"></line>
+                    </g>
+                </defs>
+
+                <clipPath id="thermoclip">
+                    <use xlink:href="#thermometer-path"/>
+                </clipPath>
+                <path id="degreeLevel" d="M 160 410 L 160 380" stroke="coral" stroke-linecap="round" stroke-width="60"
+                      clip-path="url(#thermoclip)">
+                    <animate
+                            id="temperatureLevel"
+                            attributeName="d"
+                            to="M 160 410 L 160 150"
+                            begin="startButton.click" dur="3s" fill="freeze"/>
+                    <animate
+                            id="mercuryColor"
+                            attributeName="stroke"
+                            to="red"
+                            begin="startButton.click" dur="1s" fill="freeze"/>
+                    <animate
+                            id="degreeAlert"
+                            attributeName="stroke"
+                            values="crimson;red;brown;red;crimson" repeatDur="indefinite"
+                            begin="startButton.click + 3s" dur="2s"/>
+                </path>
+
+                <use xlink:href="#degree-line" x="0" y="90"/>
+                <use xlink:href="#degree-line" x="0" y="130"/>
+                <use xlink:href="#degree-line" x="0" y="170"/>
+                <use xlink:href="#degree-line" x="0" y="210"/>
+                <use xlink:href="#degree-line" x="0" y="250"/>
+                <use xlink:href="#degree-line" x="0" y="290"/>
+                <use xlink:href="#degree-line" x="0" y="330"/>
+                <line x1="130" y1="290" x2="150" y2="290" stroke="crimson"></line>
+            </g>
+        </svg>
+
+        <div class="ambulance-container">
+            <button class="button button_secondary ambulance-container__button button_disabled">call a doctor !</button>
+            <img src="img/ambulance_0.png" alt="ambulance" class="image help-car">
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = function() {
+            let btn = document.querySelector('.ambulance-container__button'),
+                car = document.querySelector('.help-car'),
+                startButton = document.getElementById('startButton'),
+                svgAnimation = document.getElementById('degreeAlert'),
+                temperatureLevel = document.getElementById('temperatureLevel');
+
+            btn.disabled = true;
+
+            startButton.addEventListener('click', function () {
+                resetSVGAnimation();
+                enableCallButton();
+            });
+
+            btn.addEventListener('click', getAmbulance);
+
+            function enableCallButton() {
+                setTimeout(function () {
+                    car.classList.remove('help-car_active');
+
+                    btn.disabled = false;
+                    btn.classList.remove('button_disabled');
+                    btn.textContent = 'call a doctor !';
+                }, 3000);
+            }
+
+            function getAmbulance() {
+                car.src = 'img/ambulance_0.png';
+                car.classList.add('help-car_active');
+
+                getButtonResult();
+                setTimeout(changeView, 2500);
+            }
+
+            function changeView() {
+                car.src = 'img/doctors.jpg';
+                resetTemperature();
+            }
+
+            function resetTemperature() {
+                svgAnimation.setAttribute('repeatDur', '1s');
+                temperatureLevel.setAttribute('to', 'M 160 410 L 160 340');
+                temperatureLevel.setAttribute('begin', '2s');
+
+                setTimeout(resetSVGStart, 0);
+            }
+
+            function resetSVGStart() {
+                temperatureLevel.setAttribute('begin', 'startButton.click');
+            }
+
+            function resetSVGAnimation() {
+                temperatureLevel.setAttribute('to', 'M 160 410 L 160 150');
+                svgAnimation.setAttribute('repeatDur', 'indefinite');
+            }
+
+            function getButtonResult() {
+                btn.textContent = (btn.textContent.toLowerCase() === 'call a doctor !') ? 'good !' : 'call a doctor !';
+                btn.classList.add('button_disabled');
+                btn.disabled = true;
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.help-car {
+  position: relative;
+  left: -200px;
+
+  max-width: 100%;
+  height: auto;
+
+  opacity: .1;
+  transform: translateX(0) scale(0);
+
+  &_active {
+    transition: all 2s ease-in;
+
+    transform: translateX(200px) scale(1, 1);
+    opacity: 1;
+  }
+}
