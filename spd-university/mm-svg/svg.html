@@ -34,7 +34,7 @@
 
             display: block;
             min-width: 180px;
-            margin: 8rem auto 0;
+            margin: 0 auto;
         }
 
         @media screen and (min-width: 480px) {
@@ -42,8 +42,18 @@
                 order: 1;
             }
 
+            .ambulance-container__button {
+                margin-top: 7rem;
+            }
+
             .thermometer {
                 order: 2;
+            }
+        }
+
+        @media screen and (min-width: 620px) {
+            .ambulance-container__button {
+                margin-top: 0;
             }
         }
     </style>
