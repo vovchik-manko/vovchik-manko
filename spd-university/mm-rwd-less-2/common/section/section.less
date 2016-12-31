@@ -1,0 +1,40 @@
+.section {
+  max-width: 1360px;
+
+  margin: 0 auto;
+
+  padding-bottom: 40px;
+
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 70px;
+  }
+
+  &__title {
+    font-size: 220%;
+    font-weight: normal;
+
+    text-align: center;
+    text-transform: capitalize;
+
+    margin: 0;
+    padding: 10px;
+  }
+
+  &__title_strong {
+    font-family: @font-family-strong;
+    font-weight: bold;
+
+    text-transform: lowercase;
+  }
+
+  @media screen and (min-width: 768px) {
+    &__title {
+      font-size: 350%;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    margin: 0;
+  }
+}

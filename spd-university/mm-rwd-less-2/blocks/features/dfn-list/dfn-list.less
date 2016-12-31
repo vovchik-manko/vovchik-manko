@@ -1,0 +1,42 @@
+.dfn-list {
+  font-family: @font-family-strong;
+
+  display: inline-block;
+
+  &__icon {
+    font-size: 25px;
+  }
+
+  &__item-title {
+    position: relative;
+    left: -35px;
+
+    margin: 10px auto 5px;
+
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  &__item-details {
+    font-size: 14px;
+
+    margin: 0;
+  }
+
+  @media print {
+    &__item-title,
+    &__item-details {
+      display: block;
+      text-align: center;
+    }
+
+    &__item-title {
+      position: static;
+      margin-top: 10pt;
+    }
+
+    &__item-details {
+      font-size: 10pt;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.pref-plan {
+  font-weight: normal;
+  text-align: center;
+
+  min-width: 150px;
+  max-width: 300px;
+
+  border-radius: 5px;
+  box-shadow: 0 0 7px #aaa;
+
+  &__title {
+    font-family: @font-family-strong;
+    font-size: 18px;
+
+    text-transform: capitalize;
+
+    margin: 0;
+    padding: 15px;
+  }
+
+  &__title_common {
+    color: @default-font-color;
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+  }
+
+  &__title_exclusive {
+    color: #fff;
+    background-color: #333;
+    border-radius: 5px 5px 0 0;
+  }
+
+  &__price {
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+
+    margin: 0;
+    padding: 10px;
+
+    color: #ddd;
+    background-color: #222;
+  }
+
+  &__option-list {
+    margin-top: 10px;
+  }
+
+  &__button {
+    width: 81.45%;
+    max-width: 180px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 420px) {
+    &__title {
+      position: relative;
+    }
+
+    &__title:after {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+
+      content: attr(left-pointer);
+    }
+  }
+
+
+  @media screen and (min-width: 480px) and (orientation: landscape) {
+    &__title {
+      padding: 8px;
+    }
+
+    &__option-list {
+      font-size: 15px;
+      padding: 4px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &__title {
+      font-size: 22px;
+      padding: 20px;
+    }
+
+    &__price {
+      font-size: 18px;
+
+      padding: 10px;
+    }
+
+    &__option-list {
+      font-weight: normal;
+      margin-top: 15px;
+    }
+  }
+
+  @media print {
+    margin: 5pt auto;
+    border-radius: 5px;
+    border: 2pt solid #aaa;
+    box-shadow: none;
+
+    &__title {
+      padding: 10pt;
+    }
+
+    &__title_exclusive {
+      border-top: 1pt solid #aaa;
+    }
+
+    &__price {
+      padding: 8pt;
+      border-top: 1pt solid #999;
+      border-bottom: 1pt solid #999;
+    }
+
+    &__button {
+      margin-bottom: 2pt;
+    }
+  }
+}

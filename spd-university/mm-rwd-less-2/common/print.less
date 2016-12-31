@@ -1,0 +1,50 @@
+@media print {
+  @page {
+    size: A4;
+    margin: .1in;
+  }
+
+  * {
+    color: black !important;
+    background: #fff !important;
+  }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+  }
+
+  .section {
+    &:not(.about-product) {
+      page-break-before: auto;
+    }
+
+    width: 96%;
+
+    page-break-inside: avoid;
+    padding-bottom: 5pt;
+
+    &__title {
+      margin-bottom: 10pt;
+    }
+  }
+
+  .banner-content {
+    box-shadow: none;
+  }
+
+  .link {
+    &:not(.header__logo) {
+      text-decoration: underline;
+    }
+  }
+
+  .social {
+    padding-top: 40pt;
+    padding-bottom: 15pt;
+
+    &__title {
+      margin-bottom: 5pt;
+    }
+  }
+}

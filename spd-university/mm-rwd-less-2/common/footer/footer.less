@@ -1,0 +1,44 @@
+.footer {
+  text-align: center;  /* for IE9 */
+
+  .flex-container(row, wrap);
+  .flex-horizontal-align-items(justify, space-around);
+  .flex-vertical-align-items();
+
+  padding: 30px;
+
+  color: #999;
+  border-top: 2px solid #eee;
+
+  &__additional-info {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+
+  &__contact-link {
+    text-decoration: none;
+    color: #3998f5;
+  }
+
+  &__contact-link:hover {
+    color: #333;
+  }
+
+  &__menu {
+    margin-bottom: 10px;
+
+    .flex-container();
+    .flex-horizontal-align-items();
+  }
+
+  @media screen and (min-width: 895px) {
+    &__menu {
+      margin-bottom: 0;
+    }
+  }
+
+  @media print {
+    padding-top: 10pt;
+  }
+}
+

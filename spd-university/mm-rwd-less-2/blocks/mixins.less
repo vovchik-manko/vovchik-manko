@@ -1,0 +1,32 @@
+.flex-container(@direction: row, @wrap: wrap) {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: @direction;
+  flex-direction: @direction;
+
+  -ms-flex-wrap: @wrap;
+  flex-wrap: @wrap;
+}
+
+.flex-horizontal-align-items(@ms-align: center, @align: center) {
+  -webkit-box-pack: center;
+  -ms-flex-pack: @ms-align;
+  justify-content: @align;
+}
+
+.flex-vertical-align-items(@ms-align: center, @align: center) {
+  -webkit-box-align: @ms-align;
+  -ms-flex-align: @ms-align;
+  align-items: @align;
+}
+
+.flex-item(@grow: 1, @shrink: 1, @basis: auto) {
+  -webkit-box-flex: @grow;
+  -ms-flex: @grow @shrink @basis;
+  flex: @grow @shrink @basis;
+}
+
