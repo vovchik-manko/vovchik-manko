@@ -1,0 +1,21 @@
+{
+  "name": "Launchpad (rwd)",
+  "short_name": "HT-11",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "background_color": "#eee",
+  "theme_color": "#95a5a6",
+  "description": "e-commerce platform",
+  "icons": [{
+    "src": "img/favicon_16x16.png",
+    "sizes": "16x16",
+    "type": "image/png"
+  }, {
+    "src": "img/favicon_28x28.png",
+    "sizes": "28x28",
+    "type": "image/png"
+  }, {
+    "src": "img/favicon_182x182.png",
+    "sizes": "182x182"
+  }]
+}
