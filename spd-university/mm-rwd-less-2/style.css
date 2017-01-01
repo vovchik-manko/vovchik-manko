@@ -478,7 +478,7 @@ noscript {
     position: absolute;
     top: 15px;
     right: 10px;
-    content: attr(left-pointer);
+    content: attr(js-pointer);
   }
 }
 @media screen and (min-width: 480px) and (orientation: landscape) {

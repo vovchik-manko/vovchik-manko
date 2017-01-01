@@ -35,12 +35,13 @@
         for (var i = 0; i < prefPlans.length; i++) {
             if (prefPlans[i] === el.nextElementSibling) continue;
             prefPlans[i].setAttribute('hidden', '');
-            prefPlans[i].previousElementSibling.setAttribute('left-pointer', '\u25C0'); // ◄
+            prefPlans[i].previousElementSibling.setAttribute('js-pointer', '\u25C0'); // ◄
         }
+
+        el.setAttribute('js-pointer', '\u25BC'); // ▼
 
         if (el.nextElementSibling.hasAttribute('hidden')) {
             el.nextElementSibling.removeAttribute('hidden');
-            el.removeAttribute('left-pointer');
         }
     }
 })();
