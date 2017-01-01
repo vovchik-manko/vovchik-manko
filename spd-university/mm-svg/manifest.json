@@ -1,10 +1,10 @@
 {
   "name": "Hometask-11. SVG, Images",
   "short_name": "HT-11 (svg)",
-  "start_url": "svg.html",
-  "display": "fullscreen",
-  "background_color": "#ddd",
-  "theme_color": "ddd",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ccc",
+  "theme_color": "ccc",
   "description": "svg thermometer and ambulance help",
   "icons": [{
     "src": "img/favicon_32x32.png",
