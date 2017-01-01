@@ -3,8 +3,8 @@
   "short_name": "HT-11",
   "start_url": "index.html",
   "display": "fullscreen",
-  "background_color": "#eee",
-  "theme_color": "#95a5a6",
+  "background_color": "#ddd",
+  "theme_color": "#ddd",
   "description": "e-commerce platform",
   "icons": [{
     "src": "img/favicon_16x16.png",
