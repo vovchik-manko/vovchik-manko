@@ -1,7 +1,7 @@
 {
   "name": "Hometask-11. SVG, Images",
   "short_name": "HT-11 (svg)",
-  "start_url": ".",
+  "start_url": "*.html",
   "display": "standalone",
   "background_color": "#ccc",
   "theme_color": "ccc",
