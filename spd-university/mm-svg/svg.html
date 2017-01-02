@@ -64,10 +64,18 @@
         @media screen and (min-width: 480px) {
             .ambulance-container {
                 position: relative;
-                height: auto;
-                flex: 1 1 240px;
 
+                display: block;
+                height: auto;
+
+                flex: 1 1 240px;
                 order: 1;
+
+                background-color: transparent;
+            }
+            
+            .ambulance-container__button-close {
+                clip: rect(0, 0, 0, 0);
             }
 
             .ambulance-container__button {
