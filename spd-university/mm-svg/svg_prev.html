@@ -10,79 +10,38 @@
     <link rel="icon" href="img/favicon_32x32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="img/favicon_128x128.png" type="image/png" sizes="128x128">
     <link rel="manifest" href="manifest.json">
-    <title>Task 11. SVG, Images</title>
+    <title>Task 11. SVG (prev.)</title>
     <link rel="stylesheet" href="style-for-svg.css">
     <style>
         .thermometer {
-            margin-top: 50px;
-            
             flex: 1 1 240px;
-
-            z-index: 30;
         }
-
         #startButton {
             cursor: pointer;
         }
-
         .ambulance-container {
-            position: fixed;
-
-            top: 5px;
-            left: 5px;
-            right: 5px;
-            bottom: 5px;
-
-            height: 100%;
-            display: none;
-
-            /*align-self: flex-start;*/
-
-            /*flex: 1 1 240px;*/
-
+            flex: 1 1 240px;
             text-align: center;
             padding: 20px;
-
             overflow: hidden;
-
-            border: 2px solid transparent;
-            border-radius: 5px;
-            background-color: #eef;
-            z-index: 20;
         }
-
-        .ambulance-container__button-close {
-            position: absolute;
-            top: -5px;
-            right: 0;
-        }
-
         .ambulance-container__button {
             text-transform: capitalize;
-
             display: block;
             min-width: 180px;
-            margin: 0 auto 5px;
+            margin: 0 auto;
         }
-
         @media screen and (min-width: 480px) {
             .ambulance-container {
-                position: relative;
-                height: auto;
-                flex: 1 1 240px;
-
                 order: 1;
             }
-
             .ambulance-container__button {
                 margin-top: 7rem;
             }
-
             .thermometer {
                 order: 2;
             }
         }
-
         @media screen and (min-width: 620px) {
             .ambulance-container__button {
                 margin-top: 0;
@@ -171,7 +130,6 @@
         <div class="ambulance-container">
             <button class="button button_secondary ambulance-container__button button_disabled">call a doctor !</button>
             <img src="img/ambulance_0.png" alt="ambulance" class="image help-car">
-            <button class="button_close ambulance-container__button-close">x</button>
         </div>
 
     </div>
@@ -180,35 +138,22 @@
         window.onload = function() {
             var btn = document.querySelector('.ambulance-container__button'),
                 car = document.querySelector('.help-car'),
-                ambulanceContainer = document.querySelector('.ambulance-container'),
-                btnClose = document.querySelector('.button_close'),
-                btnStart = document.getElementById('startButton'),
+                startButton = document.getElementById('startButton'),
                 svgAnimation = document.getElementById('degreeAlert'),
                 temperatureLevel = document.getElementById('temperatureLevel');
 
             btn.disabled = true;
 
-            btnStart.addEventListener('click', function () {
+            startButton.addEventListener('click', function () {
                 resetSVGAnimation();
-
                 enableCallButton();
             });
 
             btn.addEventListener('click', getAmbulance);
-            btnClose.addEventListener('click', closeCallWindow);
-
-            function closeCallWindow() {
-                ambulanceContainer.style.zIndex = 20;
-                ambulanceContainer.style.display = '';
-            }
 
             function enableCallButton() {
                 setTimeout(function () {
-                    ambulanceContainer.style.display = 'block';
-                    btnClose.style.display = 'block';
-
                     car.classList.remove('help-car_active');
-
                     btn.disabled = false;
                     btn.classList.remove('button_disabled');
                     btn.textContent = 'call a doctor !';
@@ -216,16 +161,14 @@
             }
 
             function getAmbulance() {
-                ambulanceContainer.style.zIndex = 100;
                 car.src = 'img/ambulance_0.png';
                 car.classList.add('help-car_active');
-
                 getButtonResult();
                 setTimeout(changeView, 2500);
             }
 
             function changeView() {
-                car.src = 'img/doctor.png';
+                car.src = 'img/doctors.jpg';
                 resetTemperature();
             }
 
@@ -233,7 +176,6 @@
                 svgAnimation.setAttribute('repeatDur', '1s');
                 temperatureLevel.setAttribute('to', 'M 160 410 L 160 340');
                 temperatureLevel.setAttribute('begin', '2s');
-
                 setTimeout(resetSVGStart, 0);
             }
 
