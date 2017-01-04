@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style-for-svg.css">
     <style>
         .thermometer {
-            flex: 1 1 240px;
+            flex: 1 1 180px;
 
             margin-top: 30px;
             z-index: 30;
@@ -59,16 +59,22 @@
         }
 
         @media screen and (min-width: 480px) {
+            .animation-container {
+                width: 85%;
+            }
+
             .ambulance-container {
                 position: relative;
 
                 display: block;
                 height: auto;
 
-                flex: 1 1 240px;
+                flex: 1 1 180px;
                 order: 1;
 
                 background-color: transparent;
+
+                transform: translate(0, -60px);
             }
             
             .ambulance-container__button-close {
@@ -82,10 +88,20 @@
             .thermometer {
                 order: 2;
                 margin-top: 0;
+
+                transform: translate(0, -65px);
             }
         }
 
         @media screen and (min-width: 620px) {
+            .ambulance-container {
+                transform: translate(0, 0);
+            }
+
+            .thermometer {
+                transform: translate(0, 0);
+            }
+
             .ambulance-container__button {
                 margin-top: 1rem;
             }
