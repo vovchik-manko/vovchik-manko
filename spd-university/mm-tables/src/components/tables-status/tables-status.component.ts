@@ -4,7 +4,6 @@ import { ITable } from '../table/table.model';
 import { TableService } from '../table/table.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'vm-tables-status',
   templateUrl: './tables-status.component.html'
 })

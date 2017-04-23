@@ -3,7 +3,6 @@ import { Component, OnInit, Input} from '@angular/core';
 import { ITable } from '../table/table.model';
 
 @Component({
-  moduleId: module.id,
   selector: 'vm-tables-status-item',
   templateUrl: './tables-status-item.component.html'
 })

@@ -4,7 +4,6 @@ import { Table, IItemOrdered } from '../../table/table.model';
 import { OrderFormService } from "./order-form.service";
 
 @Component({
-  moduleId: module.id,
   selector: 'vm-order-form',
   templateUrl: './order-form.component.html'
 })

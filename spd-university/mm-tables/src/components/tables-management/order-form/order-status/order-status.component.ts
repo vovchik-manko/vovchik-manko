@@ -3,7 +3,6 @@ import { Input } from '@angular/core';
 import { Table } from '../../../table/table.model';
 
 @Component({
-  moduleId: module.id,
   selector: 'vm-order-status',
   templateUrl: './order-status.component.html',
 })

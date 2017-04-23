@@ -3,7 +3,6 @@ import { Input, Output, EventEmitter } from '@angular/core';
 import { ITable } from '../../table/table.model';
 
 @Component({
-  moduleId: module.id,
   selector: 'vm-nav-tabs-item',
   templateUrl: './nav-tabs-item.component.html',
   styleUrls: ['./nav-tabs-item.component.css']

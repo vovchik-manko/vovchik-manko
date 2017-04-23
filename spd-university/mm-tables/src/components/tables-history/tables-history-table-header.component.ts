@@ -3,7 +3,6 @@ import { Component, Input, OnInit} from '@angular/core';
 import { ITable } from '../table/table.model';
 
 @Component({
-  moduleId: module.id,
   selector: 'vm-tables-history-table-header',
   templateUrl: './tables-history-table-header.component.html'
 })

@@ -3,7 +3,6 @@ import { Input, Output, EventEmitter } from '@angular/core';
 import { Table } from '../../../table/table.model';
 
 @Component({
-  moduleId: module.id,
   selector: 'vm-confirm-modal',
   templateUrl: './confirm-modal.component.html',
   styleUrls: ['./confirm-modal.component.css']

@@ -4,7 +4,6 @@ import { ITable } from '../table/table.model';
 import { TableService } from '../table/table.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'vm-tables-management',
   templateUrl: './tables-management.component.html',
   styleUrls: ['./tables-management.component.css']
