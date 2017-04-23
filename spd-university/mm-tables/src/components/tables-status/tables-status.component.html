@@ -1,0 +1,5 @@
+<div>
+  <ul *ngFor="let tableGroup of tableGroups" class="list-group col-sm-4 col-md-4 col-xs-12">
+    <vm-tables-status-item *ngFor="let table of tableGroup" [table]="table"></vm-tables-status-item>
+  </ul>
+</div>

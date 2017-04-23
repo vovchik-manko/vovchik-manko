@@ -1,0 +1,40 @@
+<div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+    <li role="presentation"  class="dropdown open"
+        *ngFor="let tableGroup of tableGroups; let i = index;"
+    >
+      <a class="dropdown-toggle"
+         id=`myTabDrop${i}`
+         data-toggle="dropdown"
+         aria-controls=`myTabDrop${i}-contents`
+         aria-expanded="true"
+         href="#"
+         (click)="toggleMenu($event, i)"
+
+      >Tables for {{tableGroup[0].maxPersons}} persons<span class="caret"></span></a>
+      <ul
+        class="dropdown-menu"
+        aria-labelledby=`myTabDrop${i}`
+        id=`myTabDrop${i}-contents`
+        *ngIf="selectedMenu === i"
+        (click)="hideMenu()"
+      >
+        <li *ngFor="let table of tableGroup">
+          <vm-nav-tabs-item [table]="table" (tabPaneIsSelected)="showTabPane($event)"></vm-nav-tabs-item>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="tab-content clearfix" id="myTabContent">
+      <div
+        *ngFor="let table of tableList"
+        class="tab-pane fade active in"
+        role="tabpanel"
+        [id]="table.tableId"
+        aria-labelledby="profile-tab"
+      >
+        <vm-order-form [table]="table" *ngIf="selectedTab === table.tableId"></vm-order-form>
+      </div>
+  </div>
+</div>

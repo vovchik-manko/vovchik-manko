@@ -1,0 +1,15 @@
+<div *ngIf="t.itemsOrdered.length">
+  <p>You ordered:</p>
+  <table class="table table-bordered table-condensed table-responsive">
+    <tr class="active">
+      <th>Food item:</th>
+      <th style="text-align: center;">Price per item, $:</th>
+      <th style="text-align: center;">Quantity ordered:</th>
+    </tr>
+    <tr *ngFor="let foodItem of t.itemsOrdered" class="warning">
+      <td>{{foodItem.title}}</td>
+      <td style="text-align: right;">{{foodItem.price}}</td>
+      <td style="text-align: right;">{{foodItem.number}}</td>
+    </tr>
+  </table>
+</div>

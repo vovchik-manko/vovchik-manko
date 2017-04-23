@@ -1,0 +1,54 @@
+<br/>
+<fieldset [disabled]="t.clientName">
+  <div class="input-group">
+    <input
+      type="text" class="form-control" placeholder="Client's name..."
+      (keydown.enter)="t.bookTable(client.value); client.value=''"
+      #client
+    >
+    <span class="input-group-btn">
+          <button
+            class="btn btn-default" type="button"
+            (click)="t.bookTable(client.value); client.value=''"
+          >Go!</button>
+    </span>
+  </div>
+</fieldset>
+<br/>
+<form #form class="col-md-6">
+  <div class="form-group">
+    <label for="food-item" class="control-label">Food/drink item:</label>
+    <input type="text" class="form-control" id="food-item" placeholder="juice" #title>
+    <label for="food-price" class="control-label">Price:</label>
+    <div class="input-group" id="food-price">
+      <span class="input-group-addon">$</span>
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" #price>
+      <span class="input-group-addon">.00</span>
+    </div>
+    <label for="food-quantity" class="control-label">Quantity:</label>
+    <div class="input-group" id="food-quantity">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+      </span>
+      <select class="form-control" #number>
+        <option *ngFor="let item of quantity">{{item}}</option>
+      </select>
+    </div>
+  </div>
+  <button
+    type="button" class="btn btn-primary"
+    [disabled]="!t.clientName"
+    (click)="processOrder({title: title.value, price: price.value, number: number.value}, t, form);"
+  >Add</button>
+  <button type="button" [disabled]="!t.clientName" class="btn btn-success" (click)="viewPaycheck()"> Finish</button>
+</form>
+<br/>
+
+<vm-order-status [table]="t"></vm-order-status>
+
+<br/>
+<vm-confirm-modal
+  [table]="t" [hidden]="hidden"
+  (paycheckIsHidden)="removePaycheck()"
+  (orderIsPaid)="removePaycheck()"
+></vm-confirm-modal>

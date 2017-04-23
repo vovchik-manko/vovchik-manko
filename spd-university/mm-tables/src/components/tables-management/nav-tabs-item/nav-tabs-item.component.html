@@ -1,0 +1,10 @@
+<a
+  href="#"
+  role="tab"
+  [id]="data.tableId + '-tab'"
+  data-toggle="tab"
+  aria-controls="dropdown1"
+  (click)="showTabContent($event, data.tableId)"
+>{{data.tableId}} ({{data.status}})</a>
+
+

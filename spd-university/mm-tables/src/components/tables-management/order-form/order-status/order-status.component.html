@@ -1,0 +1,13 @@
+<div class="col-md-6">
+  <div [ngClass]="orderStatusClasses">
+    <div class="panel-heading">Table <b>{{t.tableId}}</b> ({{t.status}}),
+      client: <strong>{{t.clientName}}</strong>
+    </div>
+    <div class="panel-body">
+      <vm-order-details [table]="t"></vm-order-details>
+      <div style="text-align: right;">
+        Total amount: <b>{{t.totalOrderPrice | currency:'USD':true}}</b>
+      </div>
+    </div>
+  </div>
+</div>

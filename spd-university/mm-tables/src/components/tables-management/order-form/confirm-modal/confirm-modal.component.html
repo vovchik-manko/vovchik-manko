@@ -1,0 +1,17 @@
+<div class="overlay">
+  <div class="alert alert-success alert-dismissible fade in" role="alert">
+    <button type="button" (click)="hidePaycheck()" class="close" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+    <button type="button" (click)="payForOrder()" class="close" aria-label="Close">
+      <span aria-hidden="true">✓</span>
+    </button>
+    <h4>Thank you, mr./mrs. <strong>{{t.clientName}}</strong>, for your visit!</h4>
+    <br/>
+    <vm-order-details [table]="t"></vm-order-details>
+    <p class="lead pull-right">Total amount to pay: {{t.totalOrderPrice | currency:'USD':true}}</p>
+    <p>
+      <button type="button" class="btn btn-primary" (click)="payForOrder()">Pay for order</button>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.tab-content {
+  height: auto;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, .4);
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.nav-tabs .dropdown-menu {
+  min-width: 170px;
+}
+
+.nav-tabs .dropdown-menu > li {
+  text-align: center;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
