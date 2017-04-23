@@ -1,0 +1,55 @@
+.ticket {
+  text-align: center;
+
+  display: inline-block;
+  padding: 10px;
+
+  opacity: .9;
+  border-radius: 2px;
+  background-color: darken(desaturate(@ROYAL-BLUE, 30%), 5%);
+
+  @media screen and (min-width: 381px) and (min-height: 610px) {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    z-index: 100;
+
+    border-radius: 15px;
+  }
+
+  &__logo-container {
+    width: 168px;
+    height: 140px;
+  }
+
+  &__logo {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    border-radius: 8px;
+  }
+
+  &__field {
+    display: block;
+    margin: 0;
+    margin-top: 5px;
+  }
+
+  &__row {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__cell {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+
+    margin: 1px;
+
+    border-radius: 3px;
+  }
+}

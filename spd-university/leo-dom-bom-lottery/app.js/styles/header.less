@@ -1,0 +1,32 @@
+.header {
+  display: block;
+  padding: 5px;
+
+  background-color: lightyellow;
+  background-image: -webkit-linear-gradient(top, lightyellow, darken(lemonchiffon, 20%));
+  background-image: linear-gradient(to bottom, lightyellow, darken(lightyellow, 10%));
+
+  @media screen and (max-width: 380px) {
+    text-align: center;
+  }
+
+  &__logo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__balls-result-container {
+    display: inline-block;
+    width: 82%;
+
+    vertical-align: top;
+  }
+
+  &__logo-container {
+    display: inline-block;
+
+    vertical-align: top;
+    text-align: center;
+  }
+}
