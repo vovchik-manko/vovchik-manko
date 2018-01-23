@@ -1,0 +1,30 @@
+<div>
+  <ul class="nav nav-tabs bg-milk center-flex">
+    <li
+      *ngFor="let tableGroup of tableGroups; let i = index;"
+      class="dropdown pointer"
+      [class.open]="selectedMenu === i"
+    >
+
+      <a
+        class="dropdown-toggle"
+        (click)="toggleMenu(i, selectedMenu === i)"
+      >
+        Tables for {{tableGroup.maxPersons}} persons<span class="caret"></span>
+      </a>
+
+      <ul
+        class="dropdown-menu"
+        (click)="toggleMenu(i, true)"
+      >
+        <li *ngFor="let table of tableGroup.tables;">
+          <a [routerLink]="[table.getTableId()]" routerLinkActive="active">
+            Table {{table.getTableId()}} ({{table.status}})
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,131 @@
+<div class="padding">
+
+  <ng-container *ngIf="table; else elseBlock">
+    <form [formGroup]="clientForm" class="bg-milk">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Client's name..."
+          [attr.disabled]="!!table.clientName ? true : null"
+          formControlName="clientName"
+        >
+
+        <span class="input-group-btn">
+          <button
+            class="btn btn-default"
+            type="submit"
+            (click)="submitClientForm()"
+          >Go</button>
+        </span>
+      </div>
+      <span class="text-danger" [class.hidden]="clientForm.valid || clientForm.untouched">{{errRequired}}</span>
+    </form>
+
+    <div class="delimiter"></div>
+
+    <form
+      class="bg-milk col-md-6 padding"
+      [attr.disabled]="!table.clientName ? true : null"
+      [formGroup]="orderItemForm"
+    >
+      <div class="form-group">
+        <label class="control-label">Food/drink item:
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-apple"></span>
+            </span>
+
+            <select class="form-control" formControlName="title">
+              <option value="">Select product</option>
+              <option *ngFor="let product of products" [value]="product.title">{{product.title}},
+                <span>{{product.price | currency:'USD':'symbol-narrow'}}</span>
+              </option>
+            </select>
+          </div>
+        </label>
+
+        <span class="text-danger" [class.hidden]="orderItemForm.get('title').valid || orderItemForm.untouched">
+          {{errRequired}}
+        </span>
+
+        <label class="control-label">
+          Quantity:
+
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-duplicate"></span>
+            </span>
+
+            <select class="form-control" formControlName="quantity">
+              <option value="">Select amount of product</option>
+              <option *ngFor="let number of numbers">{{number}}</option>
+            </select>
+          </div>
+        </label>
+
+        <span class="text-danger" [class.hidden]="orderItemForm.get('quantity').valid || orderItemForm.untouched">
+          {{errRequired}}
+        </span>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="orderItemForm.disabled"
+        (click)="addOrderItem()"
+      >Add</button>
+
+      <button
+        type="button"
+        class="btn btn-success"
+        [disabled]="orderItemForm.disabled"
+        (click)="processOrder()"
+      >Finish</button>
+    </form>
+
+    <br>
+    <div class="col-md-6">
+      <div
+        class="panel"
+        [class.panel-success]="table.status === 'available'"
+        [class.panel-info]="table.status !== 'available'"
+      >
+
+        <div class="panel-heading">
+          Table <b>{{table.getTableId()}}</b> ({{table.status}}),
+          client: <strong>{{table.clientName}}</strong>
+        </div>
+
+        <div class="panel-body">
+          <ng-container *ngIf="order && !!order.itemsOrdered.length; else noDataBlock">
+            <vm-check [order]="order"></vm-check>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <vm-confirm-modal
+      [table]="table"
+      [hidden]="!viewCheck"
+      (paycheckIsHidden)="removePaycheck()"
+      (orderIsPaid)="completeOrder()"
+    >
+      <vm-check *ngIf="order && !!order.itemsOrdered.length; else noDataBlock" [order]="order"></vm-check>
+    </vm-confirm-modal>
+  </ng-container>
+
+  <ng-template #noDataBlock>
+    <p class="text-center">No items ordered.</p>
+  </ng-template>
+
+  <ng-template #elseBlock>
+    <div class="alert alert-danger alert-dismissable col-md-4 col-xs-12 col-sm-6 col-lg-2 text-center" #alert>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="alert.classList.add('hidden')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      No such table.
+    </div>
+  </ng-template>
+</div>
