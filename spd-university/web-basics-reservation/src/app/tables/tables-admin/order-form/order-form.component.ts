@@ -60,6 +60,7 @@ export class OrderFormComponent implements OnInit {
       clientName: this.clientForm.value.clientName,
       totalOrderPrice: 0
     };
+    this.tablesService.updateVisitors(this.visitor);
     Observable.fromPromise(this.tablesService.processTable(tableId, this.visitor))
       .subscribe((res: boolean) => {
         let orderData = {
@@ -99,7 +100,7 @@ export class OrderFormComponent implements OnInit {
   }
 
   completeOrder() {
-    Observable.fromPromise(this.tablesService.completeOrder(this.order, this.visitor))
+    Observable.fromPromise(this.tablesService.completeOrder(this.order))
       .subscribe((res: boolean) => {
         if(res) {
           this.order = null;
@@ -121,9 +122,11 @@ export class OrderFormComponent implements OnInit {
     this.route.params.subscribe(async (params) => {
       let id: number = +params.id;
       this.table = await this.tablesService.getTable(id);
-      this.order = await this.orderFormService.getOrder(this.table.getTableId());
 
-      this.updateForms();
+      if(this.table) {
+        this.order = await this.orderFormService.getOrder(this.table.getTableId());
+        this.updateForms();
+      }
     });
 
     this.orderFormService.getProducts()

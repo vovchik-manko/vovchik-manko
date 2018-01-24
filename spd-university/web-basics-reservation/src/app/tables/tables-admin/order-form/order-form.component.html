@@ -15,6 +15,7 @@
           <button
             class="btn btn-default"
             type="submit"
+            [disabled]="orderItemForm.enabled"
             (click)="submitClientForm()"
           >Go</button>
         </span>

@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { OrderFormModule } from './order-form/order-form.module';
+import { TablesAdminRoutingModule } from './tables-admin.routing.module';
+import { SharedModule } from "../../shared/shared.module";
 
 import { TablesAdminComponent } from './tables-admin.component';
-import { OrderFormModule } from './order-form/order-form.module';
-import { TablesAdminRoutingModule } from './tables-admin-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     OrderFormModule,
     TablesAdminRoutingModule
   ],

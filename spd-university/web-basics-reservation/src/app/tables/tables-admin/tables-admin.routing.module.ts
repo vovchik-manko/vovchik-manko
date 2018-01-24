@@ -1,9 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { OrderFormComponent } from "./order-form/order-form.component";
 import { TablesAdminComponent } from "./tables-admin.component";
-import {OrderFormModule} from "./order-form/order-form.module";
 
 const routes: Routes = [
   {
@@ -11,8 +9,8 @@ const routes: Routes = [
     component: TablesAdminComponent,
     children: [
       {
-        path: ':id',
-        component: OrderFormComponent
+        path: '',
+        loadChildren: 'app/tables/tables-admin/order-form/order-form.module#OrderFormModule'
       }
     ]
   }

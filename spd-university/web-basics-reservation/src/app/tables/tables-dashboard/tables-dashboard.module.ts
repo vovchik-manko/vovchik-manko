@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { TablesDashboardRoutingModule } from "./tables-dashboard.routing.module";
+import { SharedModule } from "../../shared/shared.module";
 
 import { TablesDashboardComponent } from './tables-dashboard.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    TablesDashboardRoutingModule
   ],
   declarations: [
     TablesDashboardComponent

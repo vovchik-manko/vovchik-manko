@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TablesRoutingModule } from "./tables-routing.module";
 import { TablesDashboardModule } from './tables-dashboard/tables-dashboard.module';
@@ -11,6 +12,7 @@ import { TablesService } from './tables.service';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     TablesRoutingModule,
     TablesDashboardModule,
     TablesAdminModule,

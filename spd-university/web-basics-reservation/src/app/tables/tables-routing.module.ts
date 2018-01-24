@@ -2,26 +2,27 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TablesDashboardComponent } from './tables-dashboard/tables-dashboard.component';
-import { TablesHistoryComponent } from './tables-history/tables-history.component';
-import { PageNotFoundComponent } from '../../components/not-found.component';
+import { PageNotFoundComponent } from "../shared/not-found.component";
+import { TablesComponent } from "./tables.component";
 
 const routes: Routes = [
   {
-    path: 'dashboard',
-    component: TablesDashboardComponent
-  },
-  {
-    path: 'tables',
-    loadChildren: 'modules/tables/tables-admin/tables-admin.module#TablesAdminModule'
-  },
-  {
-    path: 'visitors',
-    component: TablesHistoryComponent
-  },
-  {
     path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
+    component: TablesComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: TablesDashboardComponent
+      },
+      {
+        path: 'tables',
+        loadChildren: 'app/tables/tables-admin/tables-admin.module#TablesAdminModule'
+      },
+      {
+        path: 'visitors',
+        loadChildren: 'app/tables/tables-history/tables-history.module#TablesHistoryModule'
+      }
+    ]
   },
   {
     path: '**',
@@ -31,7 +32,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ],
   exports: [ RouterModule ]
 })

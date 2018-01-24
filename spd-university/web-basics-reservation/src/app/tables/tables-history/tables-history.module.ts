@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { TablesHistoryRoutingModule } from "./tables-history.routing.module";
+import { SharedModule } from "../../shared/shared.module";
 
 import { TablesHistoryComponent } from './tables-history.component';
 
+
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule,
+    TablesHistoryRoutingModule
   ],
   declarations: [
     TablesHistoryComponent

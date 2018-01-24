@@ -1,19 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { TablesModule } from "../modules/tables/tables.module";
-
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from '../components/not-found.component';
+
+import { SharedModule } from "./shared/shared.module";
+import { TablesModule } from "./tables/tables.module";
+import { AppRoutingModule } from "./app.routing.module";
 
 @NgModule({
   imports: [
     BrowserModule,
-    TablesModule
+    SharedModule,
+    TablesModule,
+    AppRoutingModule
   ],
   declarations: [
-    AppComponent,
-    PageNotFoundComponent
+    AppComponent
   ],
   bootstrap: [ AppComponent ]
 })

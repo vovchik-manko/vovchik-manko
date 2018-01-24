@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from '@angular/router';
 
 import { OrderFormComponent } from './order-form.component';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { OrderFormService } from './order-form.service';
 import { CheckComponent } from "../check/check.component";
 
+import { SharedModule } from "../../../shared/shared.module";
+import { OrderFormRoutingModule } from "./order-from.routing.module";
 
 @NgModule({
   imports: [
-    CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    SharedModule,
+    OrderFormRoutingModule
   ],
   declarations: [
     OrderFormComponent,
@@ -22,9 +22,6 @@ import { CheckComponent } from "../check/check.component";
   ],
   providers: [
     OrderFormService
-  ],
-  exports: [
-    OrderFormComponent
   ]
 })
 export class OrderFormModule { }

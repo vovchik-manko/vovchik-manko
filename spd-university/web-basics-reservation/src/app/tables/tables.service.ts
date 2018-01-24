@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/observable/from';
 
 import { Table, tableStatus, Visitor, TableGroup } from './models/tables.model';
@@ -7,16 +8,29 @@ import { ItemOrdered, Order, orderStatus } from './models/order.model';
 import { TABLES } from './models/tables.mock';
 
 @Injectable()
-export class TablesService {
+export class TablesService implements OnInit {
   private tableGroups: number[] = [2, 4, 8];
   private tables: Table[];
   private orders: Order[];
+  private visitors: Visitor[] = [];
 
-  constructor() {
+  private appUrl: string = 'http://localhost:8080/tables';
+
+  constructor(private http: HttpClient) {
     this.initData();
   }
 
+  ngOnInit() {
+    this.http.get(this.appUrl).subscribe((data: any) => {
+      console.log('start: ', data, data.json());
+    });
+  }
+
   getTables(): Table[] {
+    console.log('get tables..');
+    this.http.get(this.appUrl).subscribe((data: any) => {
+      console.log('start: ', data, data.json());
+    });
     return this.tables;
   }
 
@@ -41,8 +55,9 @@ export class TablesService {
     return true;
   }
 
-  async completeOrder(order: Order, visitor: Visitor): Promise<boolean> {
+  async completeOrder(order: Order): Promise<boolean> {
     let table = await this.getTable(order.tableId);
+    let visitor = await this.getVisitor(order.tableId, order.clientName);
 
     visitor.totalOrderPrice = order.total;
     order.clientName = visitor.clientName;
@@ -53,6 +68,14 @@ export class TablesService {
     table.clientName = null;
 
     return true;
+  }
+
+  updateVisitors(visitor: Visitor) {
+    this.visitors.push(visitor);
+  }
+
+  getVisitor(tableId: number, clientName: string): Visitor {
+    return this.visitors.find(v => v.tableId === tableId && v.clientName === clientName);
   }
 
   private initData() {
