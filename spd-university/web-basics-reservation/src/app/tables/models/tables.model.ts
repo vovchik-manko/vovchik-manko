@@ -1,51 +1,36 @@
 import { Order } from './order.model';
 
-export type Visitor = {
-  tableId: number;
-  clientName: string;
-  totalOrderPrice: number;
-}
-
 export type TableGroup = {
   maxPersons: number;
   tables: Table[];
 }
 
 export let tableStatus = {
-  RESERVED: 'reserved',
   AVAILABLE: 'available',
   PROCESSING: 'processing'
 };
 
-let tableIdNext = 0;
-
 export class Table {
-  private tableId: number;
-  private maxPersons: number;
+  id: number;
+  maxPersons: number;
 
-  public clientName: string = '';
-  public status: string = tableStatus.AVAILABLE;
-  public visitors: Visitor[] = [];
-  public orders: Order[] = [];
+  clientName: string = '';
+  status: string = tableStatus.AVAILABLE;
+  orders: Order[] = [];
 
-  constructor(maxPersons: number) {
-    this.init(maxPersons);
+  constructor(data: Table) {
+    this.init(data);
   }
 
-  public getTableId(): number {
-    return this.tableId;
-  }
-
-  public getMaxPersons(): number {
-    return this.maxPersons;
-  }
-
-  private init(maxPersons: number) {
-    if(!maxPersons) {
+  init(data: Table) {
+    if(!data) {
       return;
     }
 
-    this.tableId = ++tableIdNext;
-    this.maxPersons = maxPersons;
+    this.id = data.id;
+    this.maxPersons = data.maxPersons;
+    this.clientName = data.clientName;
+    this.status = data.status || tableStatus.AVAILABLE;
+    this.orders = data.orders || [];
   }
 }

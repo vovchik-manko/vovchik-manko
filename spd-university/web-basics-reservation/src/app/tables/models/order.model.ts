@@ -10,15 +10,14 @@ export type ItemOrdered = {
   total: number;
 }
 
-export interface IOrder {
+export type IOrder = {
   tableId: number;
   clientName: string;
+  status: any;
 }
 
-let orderId: number = 0;
-
 export class Order implements IOrder {
-  private id: number;
+  id: number;
 
   tableId: number;
   clientName: string;
@@ -31,17 +30,11 @@ export class Order implements IOrder {
     this.init(data);
   }
 
-  public getId(): number {
-    return this.id;
-  }
-
   private init(data: IOrder) {
     if(!data) { return; }
 
     this.clientName = data.clientName;
     this.tableId = data.tableId;
-
-    this.id = ++orderId;
-    this.status = orderStatus.PENDING;
+    this.status = data.status;
   }
 }

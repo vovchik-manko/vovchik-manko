@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
-import { Observable } from "rxjs/Observable";
 import 'rxjs/add/observable/fromPromise';
 
 import { OrderFormService } from './order-form.service';
-import { Table, Visitor } from '../../models/tables.model';
+import { Table } from '../../models/tables.model';
 import { Order, ItemOrdered } from '../../models/order.model';
 import { TablesService } from '../../tables.service';
 import { Product } from "../../models/product.model";
@@ -22,7 +21,6 @@ export class OrderFormComponent implements OnInit {
 
   table: Table;
   order: Order;
-  visitor: Visitor;
 
   orderItemForm: FormGroup;
   clientForm: FormGroup;
@@ -53,25 +51,13 @@ export class OrderFormComponent implements OnInit {
       return;
     }
 
-    let tableId: number = this.table.getTableId();
+    this.table.clientName = this.clientForm.value.clientName;
 
-    this.visitor = {
-      tableId: tableId,
-      clientName: this.clientForm.value.clientName,
-      totalOrderPrice: 0
-    };
-    this.tablesService.updateVisitors(this.visitor);
-    Observable.fromPromise(this.tablesService.processTable(tableId, this.visitor))
-      .subscribe((res: boolean) => {
-        let orderData = {
-          tableId: tableId,
-          clientName: this.visitor.clientName
-        };
-        this.orderFormService.createOrder(orderData)
-          .subscribe((res: Order) => {
-            this.order = res;
-            this.orderItemForm.enable();
-          });
+    this.tablesService.processTable(this.table)
+      .subscribe((res: Table) => {
+        this.table = res;
+        this.order = this.tablesService.getOrder(this.table);
+        this.orderItemForm.enable();
       });
   }
 
@@ -84,14 +70,13 @@ export class OrderFormComponent implements OnInit {
     let itemFormValue = this.orderItemForm.value;
     let orderedItem = this.composeOrderedItem(itemFormValue);
 
-    Observable.fromPromise(this.orderFormService.addItem(this.order.tableId, orderedItem))
-      .subscribe(
-        (res: Order) => {
-          this.order = res;
-          this.resetForm(this.orderItemForm, this.defaultOrderItem);
-        },
-        (err) => console.log('err: ', err)
-      );
+    this.orderFormService.addItem(this.order, orderedItem);
+    this.tablesService.updateTable(this.table)
+      .subscribe(res => {
+        this.table = res;
+        this.order = this.tablesService.getOrder(this.table);
+        this.resetForm(this.orderItemForm, this.defaultOrderItem);
+      });
   }
 
   processOrder() {
@@ -100,8 +85,8 @@ export class OrderFormComponent implements OnInit {
   }
 
   completeOrder() {
-    Observable.fromPromise(this.tablesService.completeOrder(this.order))
-      .subscribe((res: boolean) => {
+    this.tablesService.completeOrder(this.table)
+      .subscribe((res: Table) => {
         if(res) {
           this.order = null;
           this.resetForms();
@@ -121,14 +106,17 @@ export class OrderFormComponent implements OnInit {
   private initData() {
     this.route.params.subscribe(async (params) => {
       let id: number = +params.id;
-      this.table = await this.tablesService.getTable(id);
-
-      if(this.table) {
-        this.order = await this.orderFormService.getOrder(this.table.getTableId());
-        this.updateForms();
-      }
+      this.tablesService.getTable(id)
+        .subscribe((data: Table) => {
+          this.table = data;
+          if(this.table) {
+            this.order = this.tablesService.getOrder(this.table);
+            this.updateForms();
+          }
+        });
     });
 
+    //ToDo: move request to BE
     this.orderFormService.getProducts()
       .subscribe(data => this.products = data);
   }

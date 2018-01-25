@@ -1,109 +1,99 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/observable/from';
 
-import { Table, tableStatus, Visitor, TableGroup } from './models/tables.model';
-import { ItemOrdered, Order, orderStatus } from './models/order.model';
-import { TABLES } from './models/tables.mock';
+import { Table, tableStatus, TableGroup } from './models/tables.model';
+import { IOrder, Order, orderStatus } from './models/order.model';
 
 @Injectable()
-export class TablesService implements OnInit {
+export class TablesService {
   private tableGroups: number[] = [2, 4, 8];
   private tables: Table[];
-  private orders: Order[];
-  private visitors: Visitor[] = [];
 
-  private appUrl: string = 'http://localhost:8080/tables';
+  private appUrl: string = 'http://localhost:8888/tables';
 
-  constructor(private http: HttpClient) {
-    this.initData();
-  }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.http.get(this.appUrl).subscribe((data: any) => {
-      console.log('start: ', data, data.json());
+  getTables(): Observable<Table[]> {
+    return new Observable(o => {
+      this.http.get(this.appUrl).subscribe((data: Table[]) => {
+        let tables = data ? data.map(t => new Table(t)) : [];
+        o.next(tables);
+      });
     });
   }
 
-  getTables(): Table[] {
-    console.log('get tables..');
-    this.http.get(this.appUrl).subscribe((data: any) => {
-      console.log('start: ', data, data.json());
+  getTableGroups(): Observable<TableGroup[]> {
+    let tableGroups: TableGroup[];
+    return new Observable(o => {
+      this.getTables()
+        .subscribe(tables => {
+          tableGroups = [
+            ...this.tableGroups.map(group => this.composeTableGroup(group, tables))
+          ];
+          o.next(tableGroups);
+        });
     });
-    return this.tables;
   }
 
-  getTableGroups(): Array<TableGroup> {
-    return [
-      ...this.tableGroups.map(group => this.composeTableGroup(group, TABLES))
-    ];
+  getTable(id: number): Observable<Table> {
+    return new Observable(o => {
+      this.http.get(this.appUrl + '/' + id).subscribe((data: Table) => {
+        if(data) {
+          let table = new Table(data);
+          o.next(table);
+        }
+      });
+    });
   }
 
-  async getTable(id: number): Promise<Table> {
-    let tables = await this.getTables() || [];
-    let table = tables.find(t => t.getTableId() === id);
-
-    return table;
+  getOrder(table: Table): Order {
+    return table && table.orders ? table.orders.find(o => o.status === orderStatus.PENDING) : null;
   }
 
-  async processTable(tableId: number, visitor: Visitor): Promise<boolean> {
-    let table = await this.getTable(tableId);
-    table.clientName = visitor.clientName;
+  processTable(table: Table): Observable<Table> {
     table.status = tableStatus.PROCESSING;
 
-    return true;
+    let orderData: IOrder = {
+      tableId: table.id,
+      clientName: table.clientName,
+      status: orderStatus.PENDING
+    };
+    table.orders.push(new Order(orderData));
+    return this.updateTable(table);
   }
 
-  async completeOrder(order: Order): Promise<boolean> {
-    let table = await this.getTable(order.tableId);
-    let visitor = await this.getVisitor(order.tableId, order.clientName);
+  updateTable(table: Table): Observable<Table> {
+    let headers = { headers: new HttpHeaders().set('Authorization', 'my-auth-token') };
 
-    visitor.totalOrderPrice = order.total;
-    order.clientName = visitor.clientName;
+    return new Observable(o => {
+      this.http.post(`${this.appUrl}/${table.id}`, table, headers).subscribe((data: Table) => {
+        let table = new Table(data);
+        o.next(table)
+      });
+    });
+  }
+
+  completeOrder(table: Table): Observable<Table> {
+    let order: Order = this.getOrder(table);
+
     order.status = orderStatus.COMPLETE;
-    this.addVisitors(table, visitor);
-    this.addOrders(table, order);
     table.status = tableStatus.AVAILABLE;
     table.clientName = null;
 
-    return true;
+    return this.updateTable(table);
   }
 
-  updateVisitors(visitor: Visitor) {
-    this.visitors.push(visitor);
-  }
-
-  getVisitor(tableId: number, clientName: string): Visitor {
-    return this.visitors.find(v => v.tableId === tableId && v.clientName === clientName);
-  }
-
-  private initData() {
-    this.loadTables().subscribe((data: Table[]) => {
-      this.tables = data || [];
-    });
-    this.loadOrders().subscribe((data: Order[]) => {
-      this.orders = data || [];
-    });
-  }
-
-  private loadTables(): Observable<Table[]> {
-    return new Observable(observer => observer.next(TABLES));
-  }
-
-  private loadOrders(): Observable<Order[]> {
-    return new Observable(observer => observer.next([]));
+  getTableTotal(table: Table): number {
+    return table.orders.reduce((total: number, order: Order) => total + +order.total, 0);
   }
 
   private composeTableGroup(group: number, tables: Table[]): TableGroup {
     return {
       maxPersons: group,
-      tables: tables.filter(table => table.getMaxPersons() === group)
+      tables: tables.filter(table => table.maxPersons === group)
     }
-  }
-
-  private addVisitors(table: Table, visitor: Visitor) {
-    table.visitors.push(visitor);
   }
 
   private addOrders(table: Table, order: Order) {

@@ -18,8 +18,8 @@
         (click)="toggleMenu(i, true)"
       >
         <li *ngFor="let table of tableGroup.tables;">
-          <a [routerLink]="[table.getTableId()]" routerLinkActive="active">
-            Table {{table.getTableId()}} ({{table.status}})
+          <a [routerLink]="[table.id]" routerLinkActive="active">
+            Table {{table.id}} ({{table.status}})
           </a>
         </li>
       </ul>
