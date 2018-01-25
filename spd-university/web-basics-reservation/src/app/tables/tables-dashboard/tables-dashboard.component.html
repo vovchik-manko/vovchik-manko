@@ -1,0 +1,15 @@
+<div>
+  <ul *ngFor="let tableGroup of tableGroups" class="list-group col-sm-4 col-md-4 col-xs-12">
+    <ng-container *ngFor="let table of tableGroup.tables">
+      <li
+        class="text-center list-group-item pointer preselect"
+        [class.list-group-item-success]="table.status === 'available'"
+        [class.active]="table.status !== 'available'"
+        [routerLink]="['/tables', table.id]" routerLinkActive="active"
+      >
+        <h4 class="list-group-item-heading">Table {{table.id}}</h4>
+        {{table.status}}
+      </li>
+    </ng-container>
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+<div *ngFor="let table of tables">
+  <ul class="col-sm-6 col-md-6 col-xs-12 list-group">
+    <li
+      class="list-group-item pointer preselect"
+      [class.list-group-item-success]="table.status === 'available'"
+      [class.active]="table.status !== 'available'"
+      [routerLink]="['/tables', table.id]" routerLinkActive="active"
+    >
+
+      <h4 class="list-group-item-heading text-center">Table {{table.id}} ({{table.status}})</h4>
+      <span class="badge">{{getTableTotal(table)}}</span>
+      <span class="glyphicon glyphicon-user"></span> {{table.clientName}} ({{getCurrentOrderTotal(table) | currency:'USD':'symbol-narrow'}})
+    </li>
+
+    <li class="list-group-item" *ngFor="let order of getCompletedOrders(table)">
+      <span class="badge">{{order.total}}</span>
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> {{order.clientName}}
+    </li>
+  </ul>
+</div>

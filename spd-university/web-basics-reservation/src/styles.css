@@ -1,0 +1,57 @@
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg {
+  background: brown url(img/contact-1593x788.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.bg-milk {
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.preselect:hover {
+  color: forestgreen !important;
+  background-color: rgba(255, 255, 255, .95) !important;
+}
+
+.text-milk {
+  color: rgba(255, 255, 255, .8);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.align-center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.delimiter {
+  display: block;
+  padding: 0 10px;
+}

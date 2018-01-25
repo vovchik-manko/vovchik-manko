@@ -1,0 +1,34 @@
+<div class="overlay">
+  <div class="alert alert-success alert-dismissible fade in">
+    <button
+      type="button"
+      class="close"
+      (click)="hidePaycheck()"
+    >
+      <span>×</span>
+    </button>
+
+    <button
+      class="close"
+      type="button"
+      (click)="payForOrder()"
+    >
+      <span>✓</span>
+    </button>
+
+    <h4>Thank you, mr./mrs. <strong>{{table.clientName}}</strong>, for your visit!</h4>
+    <div class="delimiter"></div>
+
+    <ng-content></ng-content>
+
+    <p>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="payForOrder()"
+      >
+        Pay for order
+      </button>
+    </p>
+  </div>
+</div>
